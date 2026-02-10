@@ -1,0 +1,30 @@
+/* Estilos generales para toda la página */
+html{
+    background-color: rgb(209, 203, 203); /* Color de fondo gris claro */
+}
+
+/* Estilo para títulos principales */
+h1{
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilo para tablas */
+table{
+    border: 1px, solid; /* Borde sólido de 1px (nota: sintaxis incorrecta, debería ser "1px solid") */
+    margin-left: 40%; /* Margen izquierdo del 40% para centrar */
+    margin-top: 3%; /* Margen superior del 3% */
+    background-color: white; /* Fondo blanco para contraste */
+    padding: 3%; /* Espaciado interno del 3% en todos los lados */
+}
+
+/* Estilo para imágenes */
+img{
+    width: 300px; /* Ancho fijo de 300px */
+    height: 150px; /* Alto fijo de 150px */
+}
+
+/* Efecto hover sobre imágenes */
+img:hover{
+    background-color: blue; /* Cambia fondo a azul al pasar el mouse */
+    /* Nota: esto aplica fondo azul detrás de la imagen, no cambia la imagen */
+}

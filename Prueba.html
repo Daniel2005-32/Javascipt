@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teléfono con Historial</title>
+  <link rel="stylesheet" href="Prueba.css">
+</head>
+<body>
+
+  <h1>Teléfono</h1>
+
+  <div class="telefono">
+    <div id="pantalla"></div>
+
+    <div class="teclado">
+      <button data-tecla="1">1</button>
+      <button data-tecla="2">2</button>
+      <button data-tecla="3">3</button>
+
+      <button data-tecla="4">4</button>
+      <button data-tecla="5">5</button>
+      <button data-tecla="6">6</button>
+
+      <button data-tecla="7">7</button>
+      <button data-tecla="8">8</button>
+      <button data-tecla="9">9</button>
+
+      <button data-tecla="0" class="cero">0</button>
+      <button data-tecla="borrar">⌫</button>
+      <button data-tecla="llamar">📞</button>
+      <button data-tecla="eliminar">C</button>
+    </div>
+  </div>
+
+  <h2>Historial de llamadas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody id="historial"></tbody>
+  </table>
+
+  <script src="Prueba.js"></script>
+</body>
+</html>

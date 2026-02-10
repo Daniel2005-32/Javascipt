@@ -1,0 +1,3807 @@
+<!--
+
+Guía Completa de JavaScript: Análisis de Proyectos
+1. Introducción a JavaScript
+JavaScript es un lenguaje de programación interpretado que se ejecuta en el navegador web. Permite crear páginas web interactivas y dinámicas.
+
+Características principales:
+Interpretado: No necesita compilación
+
+Basado en objetos: Usa objetos y prototipos
+
+Lenguaje del lado del cliente: Se ejecuta en el navegador
+
+Asíncrono: Puede manejar operaciones en segundo plano
+
+2. Análisis de los Proyectos
+PROYECTO 1: Generador de Calle (projecto1.js)
+Objetivo: Crear una simulación de calle con tiendas, reloj, semáforo y coches.
+
+Variables principales:
+javascript
+let cantidadTiendas;      // Número de tiendas a crear
+let nombresTiendas = [];  // Array para almacenar nombres
+let numeroCartel;         // Número inicial para carteles
+let horas, minutos;       // Para el reloj
+let semaforo;            // Color del semáforo
+let cantidadCoches;      // Número de coches
+Funciones clave:
+Prompt y alert: Para interacción con el usuario
+
+Document.writeln(): Escribir directamente en el HTML
+
+Bucles while: Para validar entradas del usuario
+
+Switch: Para manejar diferentes colores del semáforo
+
+Flujo:
+Pide número de tiendas (máx. 6)
+
+Pide nombres de tiendas
+
+Genera tiendas con carteles numerados
+
+Pide hora para el reloj
+
+Muestra semáforo según color elegido
+
+Muestra coches (máx. 4)
+
+PROYECTO 2: Sistema de Reservas de Aviones (proyecto2.js)
+Objetivo: Sistema de reserva de asientos de avión con diferentes categorías.
+
+Clase principal:
+javascript
+class Avion {
+    constructor(filas, columnas, companhia, precioBase) {
+        this.filas = filas;
+        this.columnas = columnas;
+        this.companhia = companhia;
+        this.precioBase = precioBase;
+        this.asientos = this.generarAsientos();  // Array 2D
+    }
+}
+Funciones principales:
+javascript
+generarAsientos()     // Crea matriz de asientos con categorías
+precioFinal()        // Calcula precio según categoría y residencia
+mostrarCompanhia()   // Muestra información de la aerolínea
+mostrarTabla()       // Genera tabla visual de asientos
+reservar()          // Maneja reserva/liberación de asientos
+actualizarTotal()   // Calcula total de reservas
+Características:
+Tres aerolíneas: Binter, Iberia, CanaryFly
+
+Categorías: Business, Económica, Lowcost
+
+Descuento del 75% para residentes
+
+Uso de sessionStorage para persistencia
+
+Interfaz visual con colores por categoría
+
+PROYECTO 3: Puzzle Deslizante (proyecto3.js)
+Objetivo: Juego de puzzle con ranking de mejores tiempos.
+
+Variables globales:
+javascript
+let movimientos = 0;     // Contador de movimientos
+let tiempo = 0;          // Tiempo transcurrido
+let temporizador = null; // Referencia al temporizador
+Funciones principales:
+javascript
+inicioJuego()           // Inicializa/mezcla el puzzle
+shuffle()              // Aleatoriza las piezas
+moverPieza()           // Maneja movimiento de piezas
+esVecina()            // Verifica si piezas son adyacentes
+verificarVictoria()    // Comprueba si puzzle está resuelto
+guardarMejorTiempo()   // Guarda récord en localStorage
+mostrarMejoresTiempos()// Muestra ranking
+guardarPartida()       // Guarda estado actual
+cargarPartida()        // Carga partida guardada
+Características:
+Puzzle 3x3 con imagen dividida
+
+Temporizador en tiempo real
+
+Sistema de ranking con localStorage
+
+Guardado/carga de partidas
+
+Validación de movimientos válidos
+
+PROYECTO 4: Explorador de Archivos (Proyecto4.js)
+Objetivo: Sistema de archivos y carpetas interactivo.
+
+Funciones principales:
+javascript
+createFile()      // Crea nuevo archivo
+createFolder()    // Crea nueva carpeta
+filterElements()  // Filtra elementos por nombre
+autocomplete()    // Autocompleta nombres
+Estructura de datos:
+Sistema jerárquico con carpetas anidadas
+
+Cada carpeta tiene:
+
+Icono de carpeta
+
+Botón para añadir archivos
+
+Botón para añadir subcarpetas
+
+Botón eliminar (solo si está vacía)
+
+Características:
+Creación dinámica de archivos/carpetas
+
+Sistema de filtrado en tiempo real
+
+Autocompletado con Tab
+
+Validación de nombres duplicados
+
+Eliminación condicional
+
+PROYECTO 5 y 6: Validación de Formularios
+Objetivos: Validación de formularios con diferentes métodos de almacenamiento.
+
+Estructura común:
+javascript
+const validacion = {  // Expresiones regulares para validación
+    nombre: /^[A-Z][a-z]+$/,
+    dni: /^\d{8}[A-Z]$/,
+    // ... más validaciones
+};
+
+function validarCampo(input) {
+    // Valida campo individual
+    // Muestra errores/éxito
+}
+Proyecto 5 (Proyecto5.js):
+Método: SessionStorage
+
+Características:
+
+Validación en tiempo real
+
+Guardar/recuperar de sessionStorage
+
+Estilos visuales para errores/aciertos
+
+Proyecto 6 (Proyecto6.js):
+Métodos múltiples:
+
+SessionStorage (como Proyecto 5)
+
+Archivo JSON local
+
+Servidor PHP
+
+Base de datos MySQL (vía PHP)
+
+Funciones añadidas en Proyecto 6:
+javascript
+prepararDatosParaServidor()  // Prepara datos para enviar
+rellenarFormulario()         // Rellena formulario con datos
+mostrarMensaje()            // Sistema de mensajes mejorado
+limpiarFormulario()         // Limpia todos los campos
+3. Conceptos JavaScript Fundamentales
+A. Variables y Tipos de Datos
+javascript
+// Declaración
+let variableCambiable;     // Puede reasignarse
+const constante = 10;      // No puede reasignarse
+var antigua;              // Forma antigua (evitar)
+
+// Tipos
+let numero = 10;           // Number
+let texto = "Hola";       // String
+let booleano = true;      // Boolean
+let array = [1, 2, 3];    // Array
+let objeto = {nombre: "Juan"}; // Object
+let nulo = null;          // null
+let indefinido;           // undefined
+B. Funciones
+javascript
+// Declaración
+function nombreFuncion(parametro) {
+    return valor;
+}
+
+// Arrow function (ES6+)
+const funcionFlecha = (parametro) => {
+    return valor;
+};
+C. Manipulación del DOM
+javascript
+// Seleccionar elementos
+document.getElementById('id');
+document.querySelector('.clase');
+
+// Modificar contenido
+elemento.textContent = 'nuevo texto';
+elemento.innerHTML = '<strong>HTML</strong>';
+
+// Eventos
+elemento.addEventListener('click', funcion);
+D. Almacenamiento Web
+javascript
+// localStorage (persistente)
+localStorage.setItem('clave', 'valor');
+let valor = localStorage.getItem('clave');
+
+// sessionStorage (por sesión)
+sessionStorage.setItem('clave', 'valor');
+
+// JSON para objetos
+localStorage.setItem('objeto', JSON.stringify(miObjeto));
+let objeto = JSON.parse(localStorage.getItem('objeto'));
+E. Peticiones HTTP (AJAX/Fetch)
+javascript
+// Fetch API
+fetch('url')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+
+// Async/await (más moderno)
+async function obtenerDatos() {
+    try {
+        const response = await fetch('url');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+}
+4. Buenas Prácticas Observadas
+A. Validación de Entradas
+javascript
+// Validación con expresiones regulares
+if (!validacion[campo].test(valor)) {
+    // Mostrar error
+}
+B. Manejo de Errores
+javascript
+try {
+    // Código que puede fallar
+} catch (error) {
+    console.error("Error:", error);
+    // Informar al usuario
+}
+C. Separación de Responsabilidades
+Cada función hace una cosa específica
+
+Código modular y reutilizable
+
+Comentarios explicativos (en algunos proyectos)
+
+D. Uso de Event Listeners
+javascript
+// Mejor práctica: Esperar a que el DOM esté cargado
+document.addEventListener('DOMContentLoaded', () => {
+    // Código que manipula el DOM
+});
+
+
+📚 GUÍA COMPLETA DE VARIABLES JAVASCRIPT EN TU CÓDIGO
+Te explico cada variable de tu código, qué hace y cómo funciona:
+
+🎨 1. VARIABLES DE REFERENCIA A ELEMENTOS HTML
+javascript
+// Estas variables "apuntan" a elementos HTML en tu página
+const formulario = document.getElementById("formulario");
+// ✅ SIGNIFICADO: Encuentra en la página el elemento con id="formulario"
+// ✅ USO: Para acceder a todo el formulario
+
+const botonGuardar = document.querySelector(".guardar");
+// ✅ SIGNIFICADO: Encuentra el PRIMER elemento con clase="guardar"
+// ✅ USO: Para hacer algo cuando se haga clic en el botón Guardar
+
+const botonRecuperar = document.querySelector(".recuperar");
+// ✅ SIGNIFICADO: Encuentra el botón con clase="recuperar"
+// ✅ USO: Para recuperar datos guardados
+
+const botonJson = document.querySelector(".boton-json");
+// ✅ SIGNIFICADO: Botón para cargar datos desde un archivo JSON
+// ✅ USO: Cuando haces clic, carga datos.json
+
+const botonPublicarPhp = document.querySelector(".boton-publicar-php");
+// ✅ SIGNIFICADO: Botón para enviar datos al servidor PHP
+// ✅ USO: Guarda datos en el servidor (archivo JSON)
+
+const botonObtenerPhp = document.querySelector(".boton-obtener-php");
+// ✅ SIGNIFICADO: Botón para obtener datos del servidor PHP
+// ✅ USO: Busca datos en el servidor usando DNI
+
+const botonPublicarBd = document.querySelector(".boton-publicar-bd");
+// ✅ SIGNIFICADO: Botón para guardar en Base de Datos
+// ✅ USO: Guarda en MySQL y también en JSON
+
+const botonObtenerBd = document.querySelector(".boton-obtener-bd");
+// ✅ SIGNIFICADO: Botón para buscar en Base de Datos
+// ✅ USO: Busca primero en JSON, luego en MySQL
+📌 CONSEJO: Usamos const porque estas variables NO cambian. Siempre apuntan al mismo elemento.
+
+🔍 2. VARIABLE validacion - EXPRESIONES REGULARES
+javascript
+const validacion = {
+    nombre: /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)?$/,
+    // ✅ SIGNIFICADO: Patrón para validar nombres
+    // ✅ EJEMPLO: "Juan", "María José" ✓ | "juan", "123" ✗
+    
+    apellido: /^[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+(?:\s[A-ZÁÉÍÓÚÑ][a-záéíóúñ]+)*$/,
+    // ✅ SIGNIFICADO: Patrón para apellidos
+    // ✅ EJEMPLO: "García", "De la Torre" ✓
+    
+    dni: /^[0-9]{8}[A-Z]$/i,
+    // ✅ SIGNIFICADO: 8 números + 1 letra (mayúscula o minúscula)
+    // ✅ EJEMPLO: "12345678A" ✓ | "12345678" ✗
+    
+    fecha: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/(19|20)\d{2}$/,
+    // ✅ SIGNIFICADO: Formato DD/MM/AAAA
+    // ✅ EJEMPLO: "22/09/2000" ✓ | "32/13/2020" ✗
+    
+    cp: /^(0[1-9]|[1-4][0-9]|5[0-2])\d{3}$/,
+    // ✅ SIGNIFICADO: Código postal español (01000-52999)
+    // ✅ EJEMPLO: "28001" ✓ | "99999" ✗
+    
+    correo: /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/,
+    // ✅ SIGNIFICADO: Email válido
+    // ✅ EJEMPLO: "usuario@dominio.com" ✓ | "usuario@" ✗
+    
+    telefono: /^[9]\d{8}$/,
+    // ✅ SIGNIFICADO: Teléfono fijo español (empieza por 9)
+    // ✅ EJEMPLO: "912345678" ✓ | "812345678" ✗
+    
+    movil: /^[67]\d{8}$/,
+    // ✅ SIGNIFICADO: Móvil español (empieza por 6 o 7)
+    // ✅ EJEMPLO: "612345678" ✓ | "512345678" ✗
+    
+    iban: /^ES\d{22}$/i,
+    // ✅ SIGNIFICADO: IBAN español (ES + 22 números)
+    // ✅ EJEMPLO: "ES9121000418450200051332" ✓
+    
+    tarjeta: /^\d{16}$/,
+    // ✅ SIGNIFICADO: Tarjeta de crédito (16 dígitos)
+    // ✅ EJEMPLO: "1234567812345678" ✓
+    
+    contrasenha: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/
+    // ✅ SIGNIFICADO: Contraseña fuerte:
+    //     - Al menos 12 caracteres
+    //     - 1 minúscula, 1 mayúscula, 1 número, 1 símbolo
+    // ✅ EJEMPLO: "Abc123!@#def" ✓ | "abc123" ✗
+};
+📌 CONSEJO: Esto es un objeto (colección de propiedades). Se usa validacion.nombre para acceder.
+
+📝 3. FUNCIONES IMPORTANTES
+A. obtenerMensajeError(campo)
+javascript
+const obtenerMensajeError = (campo) => {
+    const mensajes = {
+        // Esto es un DICCIONARIO de mensajes de error
+        nombre: "Debe empezar con mayúscula y solo letras",
+        apellido: "Cada apellido debe empezar con mayúscula",
+        // ...
+    };
+    return mensajes[campo] || "Campo inválido";
+    // ✅ SIGNIFICADO: Si 'campo' existe en mensajes, devuelve ese mensaje
+    // ✅ Si NO existe, devuelve "Campo inválido"
+};
+EJEMPLO:
+
+javascript
+obtenerMensajeError('dni') // → "Formato: 8 dígitos + 1 letra"
+obtenerMensajeError('inexistente') // → "Campo inválido"
+B. validarCampo(input)
+javascript
+const validarCampo = (input) => {
+    // 'input' es el elemento HTML del campo (ej: <input id="nombre">)
+    const campo = input.id; // Ej: "nombre"
+    const valor = input.value.trim(); // Ej: "Juan"
+    const errorSpan = input.nextElementSibling; // El <span> donde va el error
+    
+    // ... lógica de validación ...
+    
+    return true; // o false
+};
+📌 SIGNIFICADO: Valida UN solo campo. Devuelve true si es válido, false si no.
+
+C. validarFormularioCompleto()
+javascript
+const validarFormularioCompleto = () => {
+    let valido = true; // Empieza asumiendo que TODO está bien
+    
+    formulario.querySelectorAll("input").forEach(input => {
+        if (!validarCampo(input)) {
+            valido = false; // Si UN campo es inválido, todo es inválido
+        }
+    });
+    
+    return valido; // true si TODOS los campos son válidos
+};
+📌 SIGNIFICADO: Valida TODOS los campos del formulario de una vez.
+
+D. mostrarMensaje(mensaje, tipo)
+javascript
+const mostrarMensaje = (mensaje, tipo = "exito") => {
+    // Crea un div flotante con el mensaje
+    // 'tipo' puede ser "exito" (verde) o "error" (rojo)
+};
+EJEMPLO:
+
+javascript
+mostrarMensaje("✅ Datos guardados", "exito");
+mostrarMensaje("❌ Error al guardar", "error");
+E. prepararDatosParaServidor()
+javascript
+const prepararDatosParaServidor = () => {
+    const datos = {
+        nombre: document.getElementById("nombre").value.trim(),
+        // Recoge el valor de cada campo y lo guarda en un objeto
+    };
+    
+    return datos; // Devuelve algo como: {nombre: "Juan", apellido: "García", ...}
+};
+📌 SIGNIFICADO: Recoge todos los datos del formulario y los organiza en un objeto.
+
+F. rellenarFormulario(datos)
+javascript
+const rellenarFormulario = (datos) => {
+    // 'datos' es un objeto como {nombre: "Juan", apellido: "García"}
+    
+    const campos = {
+        'nombre': datos.nombre || '', // Si datos.nombre existe, úsalo. Si no, cadena vacía
+        'apellido': datos.apellido || datos.apellidos || '',
+        // Puede venir como 'apellido' o 'apellidos'
+    };
+    
+    // Pone cada valor en su campo correspondiente
+    document.getElementById('nombre').value = campos.nombre;
+};
+📌 SIGNIFICADO: Llena automáticamente el formulario con datos.
+
+🔄 4. EVENT LISTENERS (ESCUCHADORES DE EVENTOS)
+javascript
+// Cuando el DOM (la página) se carga completamente
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Formulario cargado correctamente");
+    // Todo el código aquí se ejecuta CUANDO LA PÁGINA ESTÁ LISTA
+});
+
+// Para cada campo de entrada
+input.addEventListener("input", () => validarCampo(input));
+// ✅ SIGNIFICADO: CADA VEZ que escribes algo en el campo, se valida
+
+input.addEventListener("blur", () => validarCampo(input));
+// ✅ SIGNIFICADO: Cuando SALES del campo (pulsas Tab o haces clic fuera), se valida
+
+// Cuando haces clic en el botón Guardar
+botonGuardar.addEventListener("click", async (e) => {
+    e.preventDefault(); // EVITA que el formulario se envíe de la forma tradicional
+    // 'async' significa que esta función puede usar 'await' para esperar cosas
+});
+💾 5. FUNCIONES DE ALMACENAMIENTO
+Session Storage (almacenamiento de sesión)
+javascript
+// GUARDAR
+sessionStorage.setItem("usuarioTienda", JSON.stringify(datos));
+// ✅ SIGNIFICADO: Guarda 'datos' convertido a texto JSON
+// ✅ DURACIÓN: Mientras la pestaña esté abierta
+
+// RECUPERAR
+const datosGuardados = sessionStorage.getItem("usuarioTienda");
+const datos = JSON.parse(datosGuardados);
+// ✅ SIGNIFICADO: Convierte el texto JSON de vuelta a objeto
+Fetch API (comunicación con servidor)
+javascript
+// ENVIAR datos al servidor (POST)
+const respuesta = await fetch('api.php?action=publicar', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({ datos: datos }) // Convierte objeto a JSON
+});
+
+// RECIBIR datos del servidor (GET)
+const respuesta = await fetch(`api.php?action=obtener&dni=12345678A`);
+const datos = await respuesta.json(); // Convierte respuesta JSON a objeto
+🎯 VARIABLES CLAVE QUE DEBES ENTENDER
+Variable	Tipo	Significado	Ejemplo de Uso
+formulario	Elemento HTML	Todo el formulario	formulario.querySelectorAll()
+validacion	Objeto	Patrones de validación	validacion.nombre.test("Juan")
+input.value	String	Lo que escribió el usuario	if (input.value === "")
+input.id	String	ID del campo	if (input.id === "nombre")
+datos	Objeto	Datos organizados	datos.nombre, datos.dni
+respuesta	Objeto Fetch	Respuesta del servidor	await respuesta.json()
+resultado	Objeto	Resultado de operación	if (resultado.success)
+error	Objeto Error	Información del error	error.message
+🛠️ CÓMO USAR ESTAS VARIABLES EN TU CÓDIGO
+Ejemplo 1: Validar un campo específico
+javascript
+// Obtener el campo nombre
+const campoNombre = document.getElementById("nombre");
+
+// Validarlo
+const esValido = validarCampo(campoNombre);
+
+if (esValido) {
+    console.log("El nombre es válido");
+} else {
+    console.log("El nombre NO es válido");
+}
+Ejemplo 2: Guardar datos manualmente
+javascript
+// Crear datos manualmente
+const misDatos = {
+    nombre: "Ana",
+    apellido: "López",
+    dni: "87654321Z",
+    fecha: "15/05/1995"
+};
+
+// Guardar en sessionStorage
+sessionStorage.setItem("usuarioManual", JSON.stringify(misDatos));
+
+// Mostrar mensaje
+mostrarMensaje("Datos manuales guardados", "exito");
+Ejemplo 3: Probar una expresión regular
+javascript
+// Probar si un DNI es válido
+const dni = "12345678A";
+const esDNIValido = validacion.dni.test(dni); // true o false
+
+if (esDNIValido) {
+    console.log("DNI válido");
+} else {
+    console.log("DNI inválido");
+    console.log(obtenerMensajeError('dni')); // Muestra el mensaje de error
+}
+❓ PREGUNTAS FRECUENTES
+¿Por qué usar const en lugar de var o let?
+const: Para valores que NO cambian (elementos HTML, objetos de configuración)
+
+let: Para valores que SÍ cambian (contadores, resultados temporales)
+
+var: EVITAR - es la forma antigua
+
+¿Qué significa => (arrow function)?
+javascript
+// Forma tradicional
+function sumar(a, b) { return a + b; }
+
+// Forma arrow (flecha)
+const sumar = (a, b) => { return a + b; }
+// Más corta si solo devuelve algo
+const sumar = (a, b) => a + b;
+¿Qué es async/await?
+javascript
+// Sin async/await (complicado)
+fetch('api.php').then(respuesta => {
+    return respuesta.json();
+}).then(datos => {
+    console.log(datos);
+});
+
+// Con async/await (más claro)
+async function obtenerDatos() {
+    const respuesta = await fetch('api.php');
+    const datos = await respuesta.json();
+    console.log(datos);
+}
+¿Qué hace trim()?
+javascript
+const texto = "  Juan  ";
+console.log(texto.trim()); // "Juan" - quita espacios al inicio y final
+✅ RESUMEN FINAL
+Variables para ELEMENTOS HTML → Apuntan a cosas en tu página
+Variables de VALIDACIÓN → Definen las reglas de cada campo
+Variables de DATOS → Almacenan información del usuario
+Variables de RESPUESTA → Guardan lo que devuelve el servidor
+
+Cada función tiene su propósito:
+
+validarCampo() → Revisa UN campo
+
+validarFormularioCompleto() → Revisa TODOS los campos
+
+mostrarMensaje() → Muestra notificaciones
+
+prepararDatosParaServidor() → Prepara datos para enviar
+
+rellenarFormulario() → Llena el formulario con datos
+
+
+Posible idea de examen
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Paradise - Sistema de Reservas</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>🏨 Hotel Paradise</h1>
+        <div class="user-prefs">
+            <button id="toggle-theme">🌙/☀️</button>
+            <button id="toggle-lang">ES/EN</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="busqueda">
+            <h2>Buscar Disponibilidad</h2>
+            <div class="filtros">
+                <input type="date" id="check-in" placeholder="Check-in">
+                <input type="date" id="check-out" placeholder="Check-out">
+                <select id="personas">
+                    <option value="1">1 persona</option>
+                    <option value="2">2 personas</option>
+                    <option value="3">3 personas</option>
+                    <option value="4">4 personas</option>
+                </select>
+                <button id="buscar-btn">🔍 Buscar</button>
+            </div>
+        </section>
+
+        <section id="habitaciones" style="display:none;">
+            <h2>Habitaciones Disponibles</h2>
+            <div class="habitaciones-grid" id="habitaciones-grid">
+            </div>
+        </section>
+
+        <section id="servicios" style="display:none;">
+            <h2>Servicios Adicionales</h2>
+            <div class="servicios-lista">
+                <label><input type="checkbox" class="servicio" value="desayuno"> 🍳 Desayuno buffet (+€15)</label>
+                <label><input type="checkbox" class="servicio" value="parking"> 🅿️ Parking (+€10/día)</label>
+                <label><input type="checkbox" class="servicio" value="spa"> 💆 Spa acceso (+€25)</label>
+                <label><input type="checkbox" class="servicio" value="late"> 🕛 Check-out tardío (+€20)</label>
+            </div>
+        </section>
+
+        <section id="resumen" style="display:none;">
+            <h2>Resumen de tu Reserva</h2>
+            <div id="detalles-reserva"></div>
+            <div class="total">
+                <strong>Total: <span id="precio-total">0</span>€</strong>
+            </div>
+            <button id="confirmar-btn">✅ Confirmar Reserva</button>
+            <button id="guardar-temporal">💾 Guardar Temporalmente</button>
+        </section>
+
+        <section id="mis-reservas">
+            <h2>📋 Mis Reservas</h2>
+            <div id="lista-reservas">
+            </div>
+            <button id="limpiar-historial">🗑️ Limpiar Historial</button>
+        </section>
+
+        <section id="preferencias">
+            <h2>⚙️ Mis Preferencias</h2>
+            <div class="prefs-form">
+                <label>Nombre para reservas:
+                    <input type="text" id="nombre-usuario" placeholder="Tu nombre">
+                </label>
+                <label>Email:
+                    <input type="email" id="email-usuario" placeholder="tu@email.com">
+                </label>
+                <label>Tarjeta (últimos 4 dígitos):
+                    <input type="text" id="tarjeta-usuario" placeholder="**** **** **** 1234" maxlength="19">
+                </label>
+                <button id="guardar-prefs">💾 Guardar Preferencias</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f9fa;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.tema-oscuro {
+    background: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 2px solid #007bff;
+    margin-bottom: 30px;
+}
+
+.user-prefs button {
+    padding: 8px 16px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.user-prefs button:hover {
+    transform: scale(1.05);
+}
+
+/* Secciones */
+section {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.tema-oscuro section {
+    background: #2d2d2d;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+/* Filtros de búsqueda */
+.filtros {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filtros input, .filtros select {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filtros button {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.filtros button:hover {
+    transform: translateY(-2px);
+}
+
+/* Grid de habitaciones */
+.habitaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.habitacion-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.habitacion-card:hover {
+    border-color: #007bff;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.1);
+}
+
+.habitacion-card.seleccionada {
+    border-color: #28a745;
+    background: #f8fff9;
+}
+
+.tema-oscuro .habitacion-card.seleccionada {
+    background: #1e2a1e;
+}
+
+.habitacion-card h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.habitacion-card .precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #28a745;
+    margin: 10px 0;
+}
+
+.seleccionar-habitacion {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.seleccionar-habitacion:hover {
+    background: #0056b3;
+}
+
+/* Servicios */
+.servicios-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.servicios-lista label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.servicios-lista label:hover {
+    background: #f8f9fa;
+}
+
+.tema-oscuro .servicios-lista label:hover {
+    background: #3d3d3d;
+}
+
+/* Resumen */
+#detalles-reserva {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.tema-oscuro #detalles-reserva {
+    background: #3d3d3d;
+}
+
+.total {
+    font-size: 24px;
+    text-align: right;
+    padding: 20px 0;
+    border-top: 2px solid #007bff;
+}
+
+#confirmar-btn, #guardar-temporal {
+    padding: 15px 30px;
+    margin-right: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#confirmar-btn {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+    color: white;
+}
+
+#confirmar-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+}
+
+#guardar-temporal {
+    background: #6c757d;
+    color: white;
+}
+
+#guardar-temporal:hover {
+    background: #545b62;
+}
+
+/* Historial de reservas */
+.reserva-item {
+    border-left: 4px solid #007bff;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    border-radius: 0 8px 8px 0;
+}
+
+.tema-oscuro .reserva-item {
+    background: #3d3d3d;
+}
+
+.reserva-item h3 {
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.reserva-item .fecha {
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 8px;
+}
+
+.vacio {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    padding: 30px;
+}
+
+/* Preferencias */
+.prefs-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.prefs-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: 500;
+}
+
+.prefs-form input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.prefs-form input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+#limpiar-historial, #guardar-prefs {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#limpiar-historial {
+    background: #dc3545;
+    color: white;
+}
+
+#limpiar-historial:hover {
+    background: #c82333;
+}
+
+#guardar-prefs {
+    background: #007bff;
+    color: white;
+    align-self: flex-start;
+}
+
+#guardar-prefs:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .filtros {
+        flex-direction: column;
+    }
+    
+    .filtros input, .filtros select {
+        width: 100%;
+    }
+    
+    .habitaciones-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #confirmar-btn, #guardar-temporal {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Mensajes */
+.mensaje {
+    animation: slideIn 0.3s ease-out;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ========== DATOS INICIALES ==========
+    const habitaciones = [
+        { id: 1, tipo: "Estándar", capacidad: 2, precio: 80, disponible: true },
+        { id: 2, tipo: "Deluxe", capacidad: 3, precio: 120, disponible: true },
+        { id: 3, tipo: "Suite", capacidad: 4, precio: 200, disponible: true },
+        { id: 4, tipo: "Familiar", capacidad: 5, precio: 150, disponible: true }
+    ];
+
+    const servicios = [
+        { id: "desayuno", nombre: "Desayuno buffet", precio: 15 },
+        { id: "parking", nombre: "Parking", precio: 10 },
+        { id: "spa", nombre: "Acceso Spa", precio: 25 },
+        { id: "late", nombre: "Check-out tardío", precio: 20 }
+    ];
+
+    // ========== SESSION STORAGE - RESERVA ACTUAL ==========
+    
+    /**
+     * Inicializa la reserva temporal en Session Storage
+     */
+    function iniciarReservaTemporal() {
+        if (!sessionStorage.getItem('reservaActual')) {
+            const reservaInicial = {
+                checkIn: '',
+                checkOut: '',
+                personas: 2,
+                habitacion: null,
+                serviciosSeleccionados: [],
+                total: 0,
+                fechaCreacion: new Date().toISOString()
+            };
+            sessionStorage.setItem('reservaActual', JSON.stringify(reservaInicial));
+        }
+        return JSON.parse(sessionStorage.getItem('reservaActual'));
+    }
+
+    /**
+     * Actualiza la reserva temporal en Session Storage
+     */
+    function actualizarReservaTemporal(campo, valor) {
+        let reserva = JSON.parse(sessionStorage.getItem('reservaActual') || '{}');
+        reserva[campo] = valor;
+        
+        // Recalcular total si cambia habitación o servicios
+        if (campo === 'habitacion' || campo === 'serviciosSeleccionados') {
+            reserva.total = calcularTotal(reserva);
+        }
+        
+        sessionStorage.setItem('reservaActual', JSON.stringify(reserva));
+        return reserva;
+    }
+
+    /**
+     * Guarda la reserva temporal cuando el usuario navega
+     */
+    function guardarReservaTemporal() {
+        const reserva = JSON.parse(sessionStorage.getItem('reservaActual') || '{}');
+        if (reserva.habitacion) {
+            mostrarMensaje('Reserva guardada temporalmente. Puedes continuar más tarde.', 'info');
+        }
+    }
+
+    // ========== LOCAL STORAGE - DATOS PERSISTENTES ==========
+
+    /**
+     * Carga las preferencias del usuario desde Local Storage
+     */
+    function cargarPreferencias() {
+        const prefs = JSON.parse(localStorage.getItem('preferenciasUsuario') || '{}');
+        
+        // Aplicar tema guardado
+        if (prefs.tema === 'oscuro') {
+            document.body.classList.add('tema-oscuro');
+            document.getElementById('toggle-theme').textContent = '☀️';
+        }
+        
+        // Aplicar idioma
+        if (prefs.idioma === 'en') {
+            cambiarIdioma('en');
+            document.getElementById('toggle-lang').textContent = 'ES';
+        }
+        
+        // Rellenar formulario de preferencias
+        if (prefs.nombre) document.getElementById('nombre-usuario').value = prefs.nombre;
+        if (prefs.email) document.getElementById('email-usuario').value = prefs.email;
+        if (prefs.tarjeta) document.getElementById('tarjeta-usuario').value = prefs.tarjeta;
+        
+        return prefs;
+    }
+
+    /**
+     * Guarda las preferencias del usuario en Local Storage
+     */
+    function guardarPreferencias() {
+        const prefs = {
+            nombre: document.getElementById('nombre-usuario').value.trim(),
+            email: document.getElementById('email-usuario').value.trim(),
+            tarjeta: document.getElementById('tarjeta-usuario').value.trim(),
+            tema: document.body.classList.contains('tema-oscuro') ? 'oscuro' : 'claro',
+            idioma: document.documentElement.lang === 'en' ? 'en' : 'es',
+            fechaActualizacion: new Date().toISOString()
+        };
+        
+        localStorage.setItem('preferenciasUsuario', JSON.stringify(prefs));
+        mostrarMensaje('Preferencias guardadas correctamente', 'exito');
+    }
+
+    /**
+     * Guarda una reserva completada en el historial
+     */
+    function guardarReservaEnHistorial(reserva) {
+        const historial = JSON.parse(localStorage.getItem('historialReservas') || '[]');
+        
+        // Agregar información adicional
+        const reservaCompleta = {
+            ...reserva,
+            id: Date.now(), // ID único basado en timestamp
+            fechaConfirmacion: new Date().toISOString(),
+            estado: 'confirmada'
+        };
+        
+        historial.push(reservaCompleta);
+        localStorage.setItem('historialReservas', JSON.stringify(historial));
+        
+        // Limpiar reserva temporal
+        sessionStorage.removeItem('reservaActual');
+        
+        mostrarMensaje('✅ Reserva confirmada y guardada en tu historial', 'exito');
+        mostrarHistorialReservas();
+    }
+
+    /**
+     * Muestra el historial de reservas desde Local Storage
+     */
+    function mostrarHistorialReservas() {
+        const historial = JSON.parse(localStorage.getItem('historialReservas') || '[]');
+        const contenedor = document.getElementById('lista-reservas');
+        
+        if (historial.length === 0) {
+            contenedor.innerHTML = '<p class="vacio">No tienes reservas anteriores</p>';
+            return;
+        }
+        
+        contenedor.innerHTML = historial.map(reserva => `
+            <div class="reserva-item">
+                <h3>Reserva #${reserva.id.toString().slice(-6)}</h3>
+                <p>${reserva.habitacion.tipo} - ${reserva.personas} personas</p>
+                <p>${formatearFecha(reserva.checkIn)} → ${formatearFecha(reserva.checkOut)}</p>
+                <p>Total: <strong>${reserva.total}€</strong></p>
+                <p class="fecha">${formatearFecha(reserva.fechaConfirmacion)}</p>
+            </div>
+        `).join('');
+    }
+
+    /**
+     * Limpia todo el historial de reservas
+     */
+    function limpiarHistorial() {
+        if (confirm('¿Estás seguro de eliminar todo tu historial de reservas?')) {
+            localStorage.removeItem('historialReservas');
+            mostrarHistorialReservas();
+            mostrarMensaje('Historial limpiado correctamente', 'info');
+        }
+    }
+
+    // ========== FUNCIONES DE CÁLCULO ==========
+
+    /**
+     * Calcula el total de la reserva
+     */
+    function calcularTotal(reserva) {
+        let total = 0;
+        
+        // Precio de la habitación
+        if (reserva.habitacion) {
+            total += reserva.habitacion.precio;
+            
+            // Calcular días de estancia
+            if (reserva.checkIn && reserva.checkOut) {
+                const dias = calcularDias(reserva.checkIn, reserva.checkOut);
+                total *= dias;
+            }
+        }
+        
+        // Agregar servicios
+        if (reserva.serviciosSeleccionados && reserva.serviciosSeleccionados.length > 0) {
+            reserva.serviciosSeleccionados.forEach(servicioId => {
+                const servicio = servicios.find(s => s.id === servicioId);
+                if (servicio) total += servicio.precio;
+            });
+        }
+        
+        return total;
+    }
+
+    /**
+     * Calcula días entre dos fechas
+     */
+    function calcularDias(checkIn, checkOut) {
+        const inicio = new Date(checkIn);
+        const fin = new Date(checkOut);
+        const diferencia = fin.getTime() - inicio.getTime();
+        return Math.ceil(diferencia / (1000 * 3600 * 24));
+    }
+
+    // ========== FUNCIONES DE INTERFAZ ==========
+
+    /**
+     * Muestra las habitaciones disponibles
+     */
+    function mostrarHabitacionesDisponibles() {
+        const reserva = JSON.parse(sessionStorage.getItem('reservaActual'));
+        const personas = reserva.personas || 2;
+        
+        const disponibles = habitaciones.filter(h => 
+            h.disponible && h.capacidad >= personas
+        );
+        
+        const grid = document.getElementById('habitaciones-grid');
+        grid.innerHTML = disponibles.map(hab => `
+            <div class="habitacion-card ${reserva.habitacion?.id === hab.id ? 'seleccionada' : ''}">
+                <h3>${hab.tipo}</h3>
+                <p>👥 Hasta ${hab.capacidad} personas</p>
+                <p class="precio">${hab.precio}€/noche</p>
+                <button class="seleccionar-habitacion" data-id="${hab.id}">
+                    ${reserva.habitacion?.id === hab.id ? '✅ Seleccionada' : 'Seleccionar'}
+                </button>
+            </div>
+        `).join('');
+        
+        document.getElementById('habitaciones').style.display = 'block';
+    }
+
+    /**
+     * Actualiza el resumen de la reserva
+     */
+    function actualizarResumen() {
+        const reserva = JSON.parse(sessionStorage.getItem('reservaActual'));
+        const detalles = document.getElementById('detalles-reserva');
+        
+        if (!reserva.habitacion) {
+            detalles.innerHTML = '<p>No hay habitación seleccionada</p>';
+            return;
+        }
+        
+        let html = `
+            <h3>${reserva.habitacion.tipo}</h3>
+            <p>${reserva.personas} personas</p>
+            <p>Check-in: ${reserva.checkIn || 'No seleccionado'}</p>
+            <p>Check-out: ${reserva.checkOut || 'No seleccionado'}</p>
+        `;
+        
+        if (reserva.serviciosSeleccionados.length > 0) {
+            html += '<h4>Servicios adicionales:</h4><ul>';
+            reserva.serviciosSeleccionados.forEach(servicioId => {
+                const servicio = servicios.find(s => s.id === servicioId);
+                if (servicio) html += `<li>${servicio.nombre} (+${servicio.precio}€)</li>`;
+            });
+            html += '</ul>';
+        }
+        
+        detalles.innerHTML = html;
+        document.getElementById('precio-total').textContent = reserva.total;
+        document.getElementById('resumen').style.display = 'block';
+    }
+
+    // ========== EVENT LISTENERS ==========
+
+    // Botón de búsqueda
+    document.getElementById('buscar-btn').addEventListener('click', () => {
+        const checkIn = document.getElementById('check-in').value;
+        const checkOut = document.getElementById('check-out').value;
+        const personas = parseInt(document.getElementById('personas').value);
+        
+        if (!checkIn || !checkOut) {
+            mostrarMensaje('Selecciona fechas de check-in y check-out', 'error');
+            return;
+        }
+        
+        if (new Date(checkIn) >= new Date(checkOut)) {
+            mostrarMensaje('La fecha de check-out debe ser posterior al check-in', 'error');
+            return;
+        }
+        
+        // Guardar en session storage
+        actualizarReservaTemporal('checkIn', checkIn);
+        actualizarReservaTemporal('checkOut', checkOut);
+        actualizarReservaTemporal('personas', personas);
+        
+        // Mostrar habitaciones
+        mostrarHabitacionesDisponibles();
+        document.getElementById('servicios').style.display = 'block';
+    });
+
+    // Selección de habitación
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('seleccionar-habitacion')) {
+            const id = parseInt(e.target.dataset.id);
+            const habitacion = habitaciones.find(h => h.id === id);
+            
+            actualizarReservaTemporal('habitacion', habitacion);
+            mostrarHabitacionesDisponibles(); // Refrescar para mostrar selección
+            actualizarResumen();
+        }
+    });
+
+    // Selección de servicios
+    document.querySelectorAll('.servicio').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const serviciosSeleccionados = Array.from(document.querySelectorAll('.servicio:checked'))
+                .map(cb => cb.value);
+            
+            actualizarReservaTemporal('serviciosSeleccionados', serviciosSeleccionados);
+            actualizarResumen();
+        });
+    });
+
+    // Confirmar reserva
+    document.getElementById('confirmar-btn').addEventListener('click', () => {
+        const reserva = JSON.parse(sessionStorage.getItem('reservaActual'));
+        
+        if (!reserva.habitacion) {
+            mostrarMensaje('Selecciona una habitación primero', 'error');
+            return;
+        }
+        
+        // Pedir confirmación
+        if (confirm(`¿Confirmar reserva por ${reserva.total}€?`)) {
+            guardarReservaEnHistorial(reserva);
+        }
+    });
+
+    // Guardar temporalmente
+    document.getElementById('guardar-temporal').addEventListener('click', guardarReservaTemporal);
+
+    // Guardar preferencias
+    document.getElementById('guardar-prefs').addEventListener('click', guardarPreferencias);
+
+    // Limpiar historial
+    document.getElementById('limpiar-historial').addEventListener('click', limpiarHistorial);
+
+    // Toggle tema
+    document.getElementById('toggle-theme').addEventListener('click', () => {
+        document.body.classList.toggle('tema-oscuro');
+        const tema = document.body.classList.contains('tema-oscuro') ? 'oscuro' : 'claro';
+        document.getElementById('toggle-theme').textContent = tema === 'oscuro' ? '☀️' : '🌙';
+        
+        // Guardar preferencia
+        const prefs = JSON.parse(localStorage.getItem('preferenciasUsuario') || '{}');
+        prefs.tema = tema;
+        localStorage.setItem('preferenciasUsuario', JSON.stringify(prefs));
+    });
+
+    // Toggle idioma
+    document.getElementById('toggle-lang').addEventListener('click', () => {
+        const idiomaActual = document.documentElement.lang;
+        const nuevoIdioma = idiomaActual === 'es' ? 'en' : 'es';
+        
+        cambiarIdioma(nuevoIdioma);
+        document.getElementById('toggle-lang').textContent = nuevoIdioma === 'es' ? 'EN' : 'ES';
+        
+        // Guardar preferencia
+        const prefs = JSON.parse(localStorage.getItem('preferenciasUsuario') || '{}');
+        prefs.idioma = nuevoIdioma;
+        localStorage.setItem('preferenciasUsuario', JSON.stringify(prefs));
+    });
+
+    // ========== INICIALIZACIÓN ==========
+    function init() {
+        // Iniciar reserva temporal
+        iniciarReservaTemporal();
+        
+        // Cargar preferencias
+        cargarPreferencias();
+        
+        // Mostrar historial
+        mostrarHistorialReservas();
+        
+        // Configurar fechas mínimas
+        const hoy = new Date().toISOString().split('T')[0];
+        document.getElementById('check-in').min = hoy;
+        document.getElementById('check-out').min = hoy;
+        
+        // Auto-completar desde reserva temporal si existe
+        const reserva = JSON.parse(sessionStorage.getItem('reservaActual'));
+        if (reserva.checkIn) document.getElementById('check-in').value = reserva.checkIn;
+        if (reserva.checkOut) document.getElementById('check-out').value = reserva.checkOut;
+        if (reserva.personas) document.getElementById('personas').value = reserva.personas;
+        
+        // Marcar servicios seleccionados
+        if (reserva.serviciosSeleccionados) {
+            reserva.serviciosSeleccionados.forEach(id => {
+                const checkbox = document.querySelector(`.servicio[value="${id}"]`);
+                if (checkbox) checkbox.checked = true;
+            });
+        }
+        
+        // Mostrar resumen si hay datos
+        if (reserva.habitacion) {
+            actualizarResumen();
+            mostrarHabitacionesDisponibles();
+            document.getElementById('habitaciones').style.display = 'block';
+            document.getElementById('servicios').style.display = 'block';
+        }
+    }
+
+    // ========== FUNCIONES AUXILIARES ==========
+    
+    function mostrarMensaje(texto, tipo) {
+        // Implementar mensajes flotantes
+        const mensaje = document.createElement('div');
+        mensaje.className = `mensaje ${tipo}`;
+        mensaje.textContent = texto;
+        mensaje.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease-out;
+        `;
+        
+        if (tipo === 'error') {
+            mensaje.style.backgroundColor = '#f8d7da';
+            mensaje.style.color = '#721c24';
+        } else if (tipo === 'exito') {
+            mensaje.style.backgroundColor = '#d4edda';
+            mensaje.style.color = '#155724';
+        } else {
+            mensaje.style.backgroundColor = '#e2f0fd';
+            mensaje.style.color = '#0c5460';
+        }
+        
+        document.body.appendChild(mensaje);
+        setTimeout(() => mensaje.remove(), 3000);
+    }
+    
+    function formatearFecha(fechaString) {
+        return new Date(fechaString).toLocaleDateString('es-ES');
+    }
+    
+    function cambiarIdioma(idioma) {
+        // Implementar cambio de idioma básico
+        document.documentElement.lang = idioma;
+        // Aquí podrías tener un objeto de traducciones
+    }
+
+    // Inicializar aplicación
+    init();
+    
+    // Guardar reserva temporal antes de cerrar la pestaña
+    window.addEventListener('beforeunload', guardarReservaTemporal);
+});
+
+OTRA IDEA
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor de Herramientas</title>
+    <link rel="stylesheet" href="herramientas.css">
+</head>
+<body>
+    <header>
+        <h1>🔧 Sistema de Préstamos</h1>
+        <div class="contadores">
+            <span>📦 <span id="total-herramientas">0</span> herramientas</span>
+            <span>↗️ <span id="total-prestamos">0</span> préstamos</span>
+            <span>⚠️ <span id="total-atrasados">0</span> atrasados</span>
+        </div>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>➕ Nueva Herramienta</h2>
+            <input type="text" id="nombre-herramienta" placeholder="Ej: Taladro percutor">
+            <input type="text" id="categoria" placeholder="Ej: Electricas, Manuales...">
+            <input type="text" id="marca-modelo" placeholder="Marca y modelo">
+            <button onclick="agregarHerramienta()" class="btn-guardar">Guardar</button>
+        </section>
+
+
+        <section class="card">
+            <h2>↗️ Registrar Préstamo</h2>
+            <select id="select-herramienta">
+                <option value="">Selecciona herramienta...</option>
+            </select>
+            <input type="text" id="persona" placeholder="¿A quién se presta?">
+            <input type="date" id="fecha-devolucion">
+            <button onclick="registrarPrestamo()" class="btn-prestar">Prestar</button>
+        </section>
+
+        <section class="card">
+            <h2>📋 Mis Herramientas</h2>
+            <div class="filtros">
+                <button onclick="filtrar('todas')" class="filtro-btn activo">Todas</button>
+                <button onclick="filtrar('disponibles')" class="filtro-btn">Disponibles</button>
+                <button onclick="filtrar('prestadas')" class="filtro-btn">Prestadas</button>
+            </div>
+            <div id="lista-herramientas" class="grid"></div>
+        </section>
+
+        <section class="card">
+            <h2>⏰ Préstamos Activos</h2>
+            <div id="lista-prestamos"></div>
+        </section>
+
+        <section class="card">
+            <h2>📊 Historial</h2>
+            <div id="historial"></div>
+            <button onclick="limpiarHistorial()" class="btn-limpiar">Limpiar Historial</button>
+        </section>
+    </main>
+
+    <div id="mensajes"></div>
+
+    <script src="herramientas.js"></script>
+</body>
+</html>
+
+/* herramientas.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background: linear-gradient(135deg, #2c3e50, #4a6491);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.contadores {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.contadores span {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+main {
+    display: grid;
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+button {
+    padding: 12px 25px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-guardar {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: white;
+}
+
+.btn-prestar {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    color: white;
+}
+
+.btn-limpiar {
+    background: #e74c3c;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtro-btn {
+    padding: 8px 16px;
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.filtro-btn.activo {
+    background: #3498db;
+    color: white;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.herramienta-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid;
+    transition: all 0.3s;
+}
+
+.herramienta-item.disponible {
+    border-color: #27ae60;
+    background: #f1f8f4;
+}
+
+.herramienta-item.prestada {
+    border-color: #f39c12;
+    background: #fef5e7;
+}
+
+.herramienta-item.atrasada {
+    border-color: #e74c3c;
+    background: #fdedec;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.prestamo-item {
+    background: #fff9e6;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 5px solid #f39c12;
+}
+
+.prestamo-item.atrasado {
+    border-left-color: #e74c3c;
+    background: #ffeaea;
+}
+
+#mensajes {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.mensaje {
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: white;
+    animation: slideIn 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.exito { background: #27ae60; }
+.error { background: #e74c3c; }
+.info { background: #3498db; }
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contadores {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+// herramientas.js
+
+// ========== INICIALIZACIÓN ==========
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Sistema de herramientas cargado');
+    cargarDatosIniciales();
+    actualizarInterfaz();
+    
+    // Configurar fecha mínima para devolución (mañana)
+    const manana = new Date();
+    manana.setDate(manana.getDate() + 1);
+    document.getElementById('fecha-devolucion').min = manana.toISOString().split('T')[0];
+});
+
+// ========== MODELO DE DATOS ==========
+
+// Session Storage: Datos temporales del formulario
+function guardarFormularioTemporal() {
+    const formData = {
+        nombre: document.getElementById('nombre-herramienta').value,
+        categoria: document.getElementById('categoria').value,
+        marca: document.getElementById('marca-modelo').value,
+        persona: document.getElementById('persona').value,
+        fecha: document.getElementById('fecha-devolucion').value
+    };
+    sessionStorage.setItem('formTemporal', JSON.stringify(formData));
+}
+
+function cargarFormularioTemporal() {
+    const datos = JSON.parse(sessionStorage.getItem('formTemporal') || '{}');
+    if (datos.nombre) document.getElementById('nombre-herramienta').value = datos.nombre;
+    if (datos.categoria) document.getElementById('categoria').value = datos.categoria;
+    if (datos.marca) document.getElementById('marca-modelo').value = datos.marca;
+    if (datos.persona) document.getElementById('persona').value = datos.persona;
+    if (datos.fecha) document.getElementById('fecha-devolucion').value = datos.fecha;
+}
+
+// Local Storage: Datos persistentes
+function getHerramientas() {
+    return JSON.parse(localStorage.getItem('herramientas') || '[]');
+}
+
+function getPrestamos() {
+    return JSON.parse(localStorage.getItem('prestamos') || '[]');
+}
+
+function guardarHerramientas(herramientas) {
+    localStorage.setItem('herramientas', JSON.stringify(herramientas));
+}
+
+function guardarPrestamos(prestamos) {
+    localStorage.setItem('prestamos', JSON.stringify(prestamos));
+}
+
+// ========== FUNCIONES PRINCIPALES ==========
+
+function agregarHerramienta() {
+    const nombre = document.getElementById('nombre-herramienta').value.trim();
+    const categoria = document.getElementById('categoria').value.trim();
+    const marca = document.getElementById('marca-modelo').value.trim();
+    
+    if (!nombre) {
+        mostrarMensaje('⚠️ Ingresa un nombre para la herramienta', 'error');
+        return;
+    }
+    
+    const nuevaHerramienta = {
+        id: Date.now(),
+        nombre,
+        categoria: categoria || 'Sin categoría',
+        marca: marca || 'Sin marca',
+        disponible: true,
+        fechaRegistro: new Date().toISOString(),
+        vecesPrestada: 0
+    };
+    
+    const herramientas = getHerramientas();
+    herramientas.push(nuevaHerramienta);
+    guardarHerramientas(herramientas);
+    
+    mostrarMensaje('✅ Herramienta agregada correctamente', 'exito');
+    
+    // Limpiar formulario y temporal
+    document.getElementById('nombre-herramienta').value = '';
+    document.getElementById('categoria').value = '';
+    document.getElementById('marca-modelo').value = '';
+    sessionStorage.removeItem('formTemporal');
+    
+    actualizarInterfaz();
+}
+
+function registrarPrestamo() {
+    const select = document.getElementById('select-herramienta');
+    const herramientaId = parseInt(select.value);
+    const persona = document.getElementById('persona').value.trim();
+    const fechaDevolucion = document.getElementById('fecha-devolucion').value;
+    
+    if (!herramientaId || !persona || !fechaDevolucion) {
+        mostrarMensaje('⚠️ Completa todos los campos del préstamo', 'error');
+        return;
+    }
+    
+    // Crear préstamo
+    const nuevoPrestamo = {
+        id: Date.now(),
+        herramientaId,
+        persona,
+        fechaPrestamo: new Date().toISOString(),
+        fechaDevolucionEsperada: fechaDevolucion,
+        devuelto: false,
+        fechaDevolucionReal: null
+    };
+    
+    // Actualizar herramienta
+    let herramientas = getHerramientas();
+    herramientas = herramientas.map(h => {
+        if (h.id === herramientaId) {
+            return {
+                ...h,
+                disponible: false,
+                vecesPrestada: (h.vecesPrestada || 0) + 1
+            };
+        }
+        return h;
+    });
+    
+    // Guardar cambios
+    guardarHerramientas(herramientas);
+    
+    const prestamos = getPrestamos();
+    prestamos.push(nuevoPrestamo);
+    guardarPrestamos(prestamos);
+    
+    mostrarMensaje('✅ Préstamo registrado correctamente', 'exito');
+    
+    // Limpiar formulario
+    select.value = '';
+    document.getElementById('persona').value = '';
+    document.getElementById('fecha-devolucion').value = '';
+    
+    actualizarInterfaz();
+}
+
+function devolverHerramienta(prestamoId) {
+    const prestamos = getPrestamos();
+    const prestamo = prestamos.find(p => p.id === prestamoId);
+    
+    if (!prestamo) return;
+    
+    // Marcar como devuelto
+    prestamo.devuelto = true;
+    prestamo.fechaDevolucionReal = new Date().toISOString();
+    
+    // Reactivar herramienta
+    let herramientas = getHerramientas();
+    herramientas = herramientas.map(h => {
+        if (h.id === prestamo.herramientaId) {
+            return { ...h, disponible: true };
+        }
+        return h;
+    });
+    
+    // Guardar cambios
+    guardarHerramientas(herramientas);
+    guardarPrestamos(prestamos);
+    
+    mostrarMensaje('✅ Herramienta marcada como devuelta', 'exito');
+    actualizarInterfaz();
+}
+
+function eliminarHerramienta(id) {
+    if (!confirm('¿Eliminar esta herramienta permanentemente?')) return;
+    
+    const herramientas = getHerramientas();
+    const herramientasFiltradas = herramientas.filter(h => h.id !== id);
+    
+    // También eliminar préstamos asociados
+    let prestamos = getPrestamos();
+    prestamos = prestamos.filter(p => p.herramientaId !== id);
+    
+    guardarHerramientas(herramientasFiltradas);
+    guardarPrestamos(prestamos);
+    
+    mostrarMensaje('🗑️ Herramienta eliminada', 'info');
+    actualizarInterfaz();
+}
+
+// ========== FUNCIONES DE INTERFAZ ==========
+
+function actualizarInterfaz() {
+    actualizarListaHerramientas();
+    actualizarListaPrestamos();
+    actualizarContadores();
+    actualizarSelectHerramientas();
+}
+
+function actualizarListaHerramientas() {
+    const herramientas = getHerramientas();
+    const contenedor = document.getElementById('lista-herramientas');
+    const filtro = document.querySelector('.filtro-btn.activo')?.dataset?.filtro || 'todas';
+    
+    let herramientasFiltradas = herramientas;
+    
+    switch(filtro) {
+        case 'disponibles':
+            herramientasFiltradas = herramientas.filter(h => h.disponible);
+            break;
+        case 'prestadas':
+            herramientasFiltradas = herramientas.filter(h => !h.disponible);
+            break;
+    }
+    
+    if (herramientasFiltradas.length === 0) {
+        contenedor.innerHTML = '<p class="vacio">No hay herramientas registradas</p>';
+        return;
+    }
+    
+    contenedor.innerHTML = herramientasFiltradas.map(h => {
+        const prestamo = getPrestamos().find(p => 
+            p.herramientaId === h.id && !p.devuelto
+        );
+        
+        let claseEstado = h.disponible ? 'disponible' : 'prestada';
+        let fechaDevolucion = '';
+        
+        if (prestamo) {
+            const hoy = new Date();
+            const fechaDev = new Date(prestamo.fechaDevolucionEsperada);
+            if (fechaDev < hoy) {
+                claseEstado = 'atrasada';
+            }
+            fechaDevolucion = prestamo.fechaDevolucionEsperada;
+        }
+        
+        return `
+            <div class="herramienta-item ${claseEstado}">
+                <h3>${h.nombre}</h3>
+                <p>${h.categoria} • ${h.marca}</p>
+                <p>📅 ${new Date(h.fechaRegistro).toLocaleDateString()}</p>
+                <p>🔄 Prestada ${h.vecesPrestada || 0} veces</p>
+                ${!h.disponible ? `<p>↗️ A: ${prestamo?.persona || 'Desconocido'}</p>` : ''}
+                ${fechaDevolucion ? `<p>📅 Devolución: ${fechaDevolucion}</p>` : ''}
+                <div class="acciones">
+                    ${!h.disponible ? `<button onclick="devolverHerramienta(${prestamo?.id})">✅ Devolver</button>` : ''}
+                    <button onclick="eliminarHerramienta(${h.id})" class="btn-eliminar">🗑️ Eliminar</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function actualizarListaPrestamos() {
+    const prestamos = getPrestamos();
+    const activos = prestamos.filter(p => !p.devuelto);
+    const contenedor = document.getElementById('lista-prestamos');
+    
+    if (activos.length === 0) {
+        contenedor.innerHTML = '<p class="vacio">No hay préstamos activos</p>';
+        return;
+    }
+    
+    const hoy = new Date();
+    
+    contenedor.innerHTML = activos.map(p => {
+        const herramienta = getHerramientas().find(h => h.id === p.herramientaId);
+        const fechaDev = new Date(p.fechaDevolucionEsperada);
+        const atrasado = fechaDev < hoy;
+        const diasRestantes = Math.ceil((fechaDev - hoy) / (1000 * 60 * 60 * 24));
+        
+        return `
+            <div class="prestamo-item ${atrasado ? 'atrasado' : ''}">
+                <h4>${herramienta?.nombre || 'Herramienta desconocida'}</h4>
+                <p>👤 <strong>${p.persona}</strong></p>
+                <p>📅 Prestado: ${new Date(p.fechaPrestamo).toLocaleDateString()}</p>
+                <p>📅 Devolución esperada: ${p.fechaDevolucionEsperada}</p>
+                <p>⏰ ${atrasado ? '⚠️ ATRASADO' : `⏳ ${diasRestantes} días restantes`}</p>
+                <button onclick="devolverHerramienta(${p.id})">✅ Marcar como devuelto</button>
+            </div>
+        `;
+    }).join('');
+}
+
+function actualizarContadores() {
+    const herramientas = getHerramientas();
+    const prestamos = getPrestamos();
+    const activos = prestamos.filter(p => !p.devuelto);
+    
+    const hoy = new Date();
+    const atrasados = activos.filter(p => 
+        new Date(p.fechaDevolucionEsperada) < hoy
+    );
+    
+    document.getElementById('total-herramientas').textContent = herramientas.length;
+    document.getElementById('total-prestamos').textContent = activos.length;
+    document.getElementById('total-atrasados').textContent = atrasados.length;
+}
+
+function actualizarSelectHerramientas() {
+    const herramientas = getHerramientas();
+    const select = document.getElementById('select-herramienta');
+    
+    // Guardar selección actual
+    const valorActual = select.value;
+    
+    // Limpiar y agregar opciones
+    select.innerHTML = '<option value="">Selecciona herramienta...</option>';
+    
+    herramientas
+        .filter(h => h.disponible)
+        .forEach(h => {
+            const option = document.createElement('option');
+            option.value = h.id;
+            option.textContent = `${h.nombre} (${h.marca})`;
+            select.appendChild(option);
+        });
+    
+    // Restaurar selección si existe
+    if (valorActual && select.querySelector(`option[value="${valorActual}"]`)) {
+        select.value = valorActual;
+    }
+}
+
+function filtrar(tipo) {
+    // Actualizar botones activos
+    document.querySelectorAll('.filtro-btn').forEach(btn => {
+        btn.classList.remove('activo');
+        if (btn.textContent.toLowerCase().includes(tipo)) {
+            btn.classList.add('activo');
+        }
+    });
+    
+    actualizarListaHerramientas();
+}
+
+function limpiarHistorial() {
+    if (!confirm('¿Eliminar todo el historial de préstamos?')) return;
+    
+    const prestamos = getPrestamos();
+    // Mantener solo préstamos activos
+    const activos = prestamos.filter(p => !p.devuelto);
+    
+    guardarPrestamos(activos);
+    mostrarMensaje('📊 Historial limpiado', 'info');
+    actualizarInterfaz();
+}
+
+// ========== FUNCIONES AUXILIARES ==========
+
+function mostrarMensaje(texto, tipo) {
+    const mensajes = document.getElementById('mensajes');
+    const mensaje = document.createElement('div');
+    
+    mensaje.className = `mensaje ${tipo}`;
+    mensaje.textContent = texto;
+    mensaje.style.cssText = `
+        padding: 15px 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        color: white;
+        animation: slideIn 0.3s;
+    `;
+    
+    if (tipo === 'exito') {
+        mensaje.style.background = '#27ae60';
+    } else if (tipo === 'error') {
+        mensaje.style.background = '#e74c3c';
+    } else {
+        mensaje.style.background = '#3498db';
+    }
+    
+    mensajes.appendChild(mensaje);
+    
+    // Auto-eliminar después de 5 segundos
+    setTimeout(() => {
+        mensaje.style.animation = 'slideOut 0.3s';
+        setTimeout(() => mensaje.remove(), 300);
+    }, 5000);
+}
+
+function cargarDatosIniciales() {
+    // Si no hay datos, cargar ejemplos
+    if (getHerramientas().length === 0) {
+        const herramientasEjemplo = [
+            { id: 1, nombre: 'Taladro percutor', categoria: 'Eléctricas', marca: 'Bosch', disponible: true, fechaRegistro: new Date().toISOString(), vecesPrestada: 2 },
+            { id: 2, nombre: 'Sierra circular', categoria: 'Eléctricas', marca: 'Makita', disponible: true, fechaRegistro: new Date().toISOString(), vecesPrestada: 1 },
+            { id: 3, nombre: 'Juego de llaves', categoria: 'Manuales', marca: 'Stanley', disponible: true, fechaRegistro: new Date().toISOString(), vecesPrestada: 0 }
+        ];
+        localStorage.setItem('herramientas', JSON.stringify(herramientasEjemplo));
+        
+        const prestamosEjemplo = [
+            { id: 101, herramientaId: 1, persona: 'Juan Pérez', fechaPrestamo: new Date(Date.now() - 7*24*60*60*1000).toISOString(), fechaDevolucionEsperada: new Date(Date.now() + 7*24*60*60*1000).toISOString(), devuelto: false }
+        ];
+        localStorage.setItem('prestamos', JSON.stringify(prestamosEjemplo));
+    }
+    
+    cargarFormularioTemporal();
+}
+
+// Guardar formulario temporal al cambiar
+document.querySelectorAll('input, select').forEach(element => {
+    element.addEventListener('input', guardarFormularioTemporal);
+});
+
+// Añadir animación slideOut
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(style);
+
+
+OTRO MAS
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Moderna</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Calculadora Avanzada</h1>
+            <p class="subtitle">Realiza operaciones matemáticas básicas y científicas</p>
+        </header>
+        
+        <main class="calculator-container">
+            <div class="calculator-screen">
+                <div class="screen-top">
+                    <div class="history" id="history">
+                    </div>
+                    <button class="clear-history" id="clearHistory" title="Borrar historial">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                
+                <div class="display" id="display">0</div>
+
+                <div class="indicators">
+                    <span class="indicator" id="memoryIndicator" title="Memoria activa">
+                        <i class="fas fa-sd-card"></i> M
+                    </span>
+                    <span class="indicator" id="errorIndicator" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i> Error
+                    </span>
+                </div>
+            </div>
+            
+
+            <div class="calculator-keypad">
+
+                <div class="row special-functions">
+                    <button class="btn memory-btn" data-action="memory-clear" title="Borrar memoria">
+                        MC
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-recall" title="Recuperar memoria">
+                        MR
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-add" title="Sumar a memoria">
+                        M+
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-subtract" title="Restar de memoria">
+                        M-
+                    </button>
+                    <button class="btn clear-btn" data-action="clear-entry" title="Borrar entrada">
+                        CE
+                    </button>
+                    <button class="btn clear-btn" data-action="clear" title="Borrar todo">
+                        C
+                    </button>
+                    <button class="btn delete-btn" data-action="delete" title="Borrar último dígito">
+                        <i class="fas fa-backspace"></i>
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <button class="btn operation-btn" data-action="percentage" title="Porcentaje">
+                        %
+                    </button>
+                    <button class="btn operation-btn" data-action="square-root" title="Raíz cuadrada">
+                        √
+                    </button>
+                    <button class="btn operation-btn" data-action="square" title="Elevar al cuadrado">
+                        x²
+                    </button>
+                    <button class="btn operation-btn" data-action="divide" title="Dividir">
+                        ÷
+                    </button>
+                </div>
+                
+
+                <div class="row">
+                    <button class="btn number-btn" data-number="7">
+                        7
+                    </button>
+                    <button class="btn number-btn" data-number="8">
+                        8
+                    </button>
+                    <button class="btn number-btn" data-number="9">
+                        9
+                    </button>
+                    <button class="btn operation-btn" data-action="multiply" title="Multiplicar">
+                        ×
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <button class="btn number-btn" data-number="4">
+                        4
+                    </button>
+                    <button class="btn number-btn" data-number="5">
+                        5
+                    </button>
+                    <button class="btn number-btn" data-number="6">
+                        6
+                    </button>
+                    <button class="btn operation-btn" data-action="subtract" title="Restar">
+                        −
+                    </button>
+                </div>
+                
+ 
+                <div class="row">
+                    <button class="btn number-btn" data-number="1">
+                        1
+                    </button>
+                    <button class="btn number-btn" data-number="2">
+                        2
+                    </button>
+                    <button class="btn number-btn" data-number="3">
+                        3
+                    </button>
+                    <button class="btn operation-btn add-btn" data-action="add" title="Sumar">
+                        +
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <button class="btn number-btn zero-btn" data-number="0">
+                        0
+                    </button>
+                    <button class="btn decimal-btn" data-action="decimal" title="Punto decimal">
+                        .
+                    </button>
+                    <button class="btn sign-btn" data-action="toggle-sign" title="Cambiar signo">
+                        ±
+                    </button>
+                    <button class="btn equals-btn" data-action="calculate" title="Calcular">
+                        =
+                    </button>
+                </div>
+                
+                <div class="row extra-functions">
+                    <button class="btn extra-btn" data-action="sin" title="Seno">
+                        sin
+                    </button>
+                    <button class="btn extra-btn" data-action="cos" title="Coseno">
+                        cos
+                    </button>
+                    <button class="btn extra-btn" data-action="tan" title="Tangente">
+                        tan
+                    </button>
+                    <button class="btn extra-btn" data-action="pi" title="Valor de π">
+                        π
+                    </button>
+                    <button class="btn extra-btn" data-action="factorial" title="Factorial">
+                        n!
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="info-panel">
+                <div class="info-section">
+                    <h3><i class="fas fa-lightbulb"></i> Atajos de teclado</h3>
+                    <ul>
+                        <li><kbd>0-9</kbd> : Números</li>
+                        <li><kbd>+ - * /</kbd> : Operaciones</li>
+                        <li><kbd>Enter</kbd> o <kbd>=</kbd> : Calcular</li>
+                        <li><kbd>Escape</kbd> o <kbd>C</kbd> : Borrar</li>
+                        <li><kbd>Delete</kbd> o <kbd>Backspace</kbd> : Borrar dígito</li>
+                    </ul>
+                </div>
+                
+                <div class="info-section">
+                    <h3><i class="fas fa-history"></i> Historial reciente</h3>
+                    <div class="recent-history" id="recentHistory">
+                        <p class="empty-history">No hay operaciones recientes</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+
+        <footer class="footer">
+            <p>Calculadora v1.0 • Hecha con <i class="fas fa-heart"></i> usando HTML, CSS y JavaScript</p>
+            <p class="footer-links">
+                <button class="footer-btn" id="themeToggle" title="Cambiar tema">
+                    <i class="fas fa-moon"></i> Tema Oscuro
+                </button>
+                <button class="footer-btn" id="resetCalculator" title="Reiniciar calculadora">
+                    <i class="fas fa-redo"></i> Reiniciar
+                </button>
+            </p>
+        </footer>
+    </div>
+    
+    <script src="calculadora.js"></script>
+</body>
+</html>
+
+/* ============================================
+   ESTILOS GENERALES Y RESET
+============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 25px;
+}
+
+/* ============================================
+   CABECERA
+============================================ */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header h1 i {
+    color: #3498db;
+}
+
+.subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL DE LA CALCULADORA
+============================================ */
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* ============================================
+   PANTALLA DE LA CALCULADORA
+============================================ */
+.calculator-screen {
+    background: #1a1a2e;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+    border: 3px solid #2d3047;
+}
+
+.screen-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.history {
+    color: #7fdbff;
+    font-size: 0.9rem;
+    font-family: 'Orbitron', sans-serif;
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clear-history {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.clear-history:hover {
+    background: #ff4757;
+    transform: scale(1.1);
+}
+
+.display {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: #00ff9d;
+    text-align: right;
+    padding: 20px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    word-break: break-all;
+    border: 2px solid #00ff9d;
+    box-shadow: inset 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+.indicators {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.indicator {
+    background: rgba(255, 255, 255, 0.1);
+    color: #7fdbff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid rgba(127, 219, 255, 0.3);
+}
+
+#errorIndicator {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+    border-color: rgba(255, 107, 107, 0.3);
+}
+
+/* ============================================
+   TECLADO DE LA CALCULADORA
+============================================ */
+.calculator-keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+}
+
+/* ESTILOS GENERALES DE BOTONES */
+.btn {
+    flex: 1;
+    height: 70px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* BOTONES ESPECÍFICOS */
+.special-functions .btn {
+    height: 50px;
+    font-size: 1rem;
+}
+
+.memory-btn {
+    background: #3498db;
+    color: white;
+}
+
+.memory-btn:hover {
+    background: #2980b9;
+}
+
+.clear-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #c0392b;
+}
+
+.delete-btn {
+    background: #f39c12;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.delete-btn:hover {
+    background: #d68910;
+}
+
+.number-btn {
+    background: #ecf0f1;
+    color: #2c3e50;
+}
+
+.number-btn:hover {
+    background: #d5dbdb;
+}
+
+.zero-btn {
+    flex: 2.2;
+}
+
+.operation-btn {
+    background: #9b59b6;
+    color: white;
+    font-size: 1.8rem;
+}
+
+.operation-btn:hover {
+    background: #8e44ad;
+}
+
+.add-btn {
+    background: #2ecc71;
+}
+
+.add-btn:hover {
+    background: #27ae60;
+}
+
+.decimal-btn, .sign-btn {
+    background: #95a5a6;
+    color: white;
+}
+
+.decimal-btn:hover, .sign-btn:hover {
+    background: #7f8c8d;
+}
+
+.equals-btn {
+    background: #e67e22;
+    color: white;
+    font-size: 2rem;
+}
+
+.equals-btn:hover {
+    background: #d35400;
+}
+
+.extra-functions {
+    margin-top: 10px;
+}
+
+.extra-btn {
+    height: 50px;
+    background: #34495e;
+    color: white;
+    font-size: 1rem;
+}
+
+.extra-btn:hover {
+    background: #2c3e50;
+}
+
+/* ============================================
+   PANEL DE INFORMACIÓN
+============================================ */
+.info-panel {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #e9ecef;
+}
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+.info-section:last-child {
+    margin-bottom: 0;
+}
+
+.info-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+}
+
+.info-section h3 i {
+    color: #3498db;
+}
+
+.info-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.info-section li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-section li:last-child {
+    border-bottom: none;
+}
+
+kbd {
+    background: #2c3e50;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+}
+
+.recent-history {
+    min-height: 120px;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.empty-history {
+    color: #95a5a6;
+    text-align: center;
+    font-style: italic;
+    padding: 20px;
+}
+
+.history-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: space-between;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-expression {
+    color: #2c3e50;
+}
+
+.history-result {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* ============================================
+   PIE DE PÁGINA
+============================================ */
+.footer {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 2px solid #eee;
+    color: #7f8c8d;
+}
+
+.footer p {
+    margin-bottom: 15px;
+}
+
+.footer i.fa-heart {
+    color: #e74c3c;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+#themeToggle {
+    background: #2c3e50;
+}
+
+#themeToggle:hover {
+    background: #1a252f;
+}
+
+#resetCalculator {
+    background: #e74c3c;
+}
+
+#resetCalculator:hover {
+    background: #c0392b;
+}
+
+/* ============================================
+   TEMA OSCURO
+============================================ */
+.dark-theme {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.dark-theme .container {
+    background-color: #0f3460;
+    color: #ecf0f1;
+}
+
+.dark-theme .header h1 {
+    color: #ecf0f1;
+}
+
+.dark-theme .subtitle {
+    color: #bdc3c7;
+}
+
+.dark-theme .info-panel {
+    background: #1a1a2e;
+    border-color: #2d3047;
+    color: #ecf0f1;
+}
+
+.dark-theme .info-section h3 {
+    color: #ecf0f1;
+}
+
+.dark-theme .recent-history {
+    background: #16213e;
+    border-color: #2d3047;
+}
+
+.dark-theme .empty-history {
+    color: #7f8c8d;
+}
+
+.dark-theme .history-item {
+    border-color: #2d3047;
+}
+
+.dark-theme .history-expression {
+    color: #bdc3c7;
+}
+
+.dark-theme .footer {
+    border-color: #2d3047;
+    color: #bdc3c7;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+============================================ */
+@media (max-width: 768px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .display {
+        font-size: 2.5rem;
+        min-height: 100px;
+    }
+    
+    .btn {
+        height: 60px;
+        font-size: 1.3rem;
+    }
+    
+    .special-functions .btn {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+    
+    .extra-btn {
+        height: 45px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .display {
+        font-size: 2rem;
+        min-height: 80px;
+    }
+    
+    .btn {
+        height: 55px;
+        font-size: 1.2rem;
+    }
+    
+    .row {
+        gap: 8px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+// ============================================
+// CALCULADORA COMPLETA - LÓGICA PRINCIPAL
+// ============================================
+
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // ============================================
+    // 1. VARIABLES GLOBALES Y ESTADO
+    // ============================================
+    
+    // Referencias a elementos del DOM
+    const display = document.getElementById('display');
+    const historyDisplay = document.getElementById('history');
+    const recentHistory = document.getElementById('recentHistory');
+    const memoryIndicator = document.getElementById('memoryIndicator');
+    const errorIndicator = document.getElementById('errorIndicator');
+    const clearHistoryBtn = document.getElementById('clearHistory');
+    const themeToggle = document.getElementById('themeToggle');
+    const resetCalculatorBtn = document.getElementById('resetCalculator');
+    
+    // Estado de la calculadora
+    let currentValue = '0';          // Valor actual en pantalla
+    let previousValue = null;        // Valor anterior
+    let currentOperator = null;      // Operador actual (+, -, ×, ÷)
+    let waitingForNewValue = false;  // ¿Esperando nuevo valor después de operador?
+    let memoryValue = 0;             // Valor almacenado en memoria
+    let calculationHistory = [];     // Historial de cálculos
+    let isErrorState = false;        // ¿Está en estado de error?
+    
+    // ============================================
+    // 2. FUNCIONES DE MANEJO DE PANTALLA
+    // ============================================
+    
+    /**
+     * Actualiza el contenido de la pantalla principal
+     * @param {string} value - Valor a mostrar
+     */
+    function updateDisplay(value) {
+        // Limitar la longitud para evitar desbordamiento
+        if (value.length > 12) {
+            // Usar notación científica para números muy largos
+            const num = parseFloat(value);
+            display.textContent = num.toExponential(6);
+        } else {
+            // Formatear números grandes con separadores de miles
+            const formattedValue = formatNumber(value);
+            display.textContent = formattedValue;
+        }
+    }
+    
+    /**
+     * Formatea un número con separadores de miles
+     * @param {string} value - Número a formatear
+     * @returns {string} Número formateado
+     */
+    function formatNumber(value) {
+        // Si no es un número válido, devolver el valor original
+        if (value === 'Error' || value === 'Infinity' || isNaN(value)) {
+            return value;
+        }
+        
+        // Separar parte entera y decimal
+        const parts = value.split('.');
+        let integerPart = parts[0];
+        const decimalPart = parts.length > 1 ? '.' + parts[1] : '';
+        
+        // Añadir separadores de miles
+        integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        
+        return integerPart + decimalPart;
+    }
+    
+    /**
+     * Actualiza el historial en pantalla
+     */
+    function updateHistoryDisplay() {
+        if (previousValue !== null && currentOperator !== null) {
+            historyDisplay.textContent = `${previousValue} ${currentOperator}`;
+        } else {
+            historyDisplay.textContent = '';
+        }
+    }
+    
+    /**
+     * Actualiza el historial reciente en el panel lateral
+     */
+    function updateRecentHistory() {
+        // Limpiar el contenido actual
+        recentHistory.innerHTML = '';
+        
+        if (calculationHistory.length === 0) {
+            recentHistory.innerHTML = '<p class="empty-history">No hay operaciones recientes</p>';
+            return;
+        }
+        
+        // Mostrar las últimas 5 operaciones (las más recientes primero)
+        const reversedHistory = [...calculationHistory].reverse().slice(0, 5);
+        
+        reversedHistory.forEach(item => {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'history-item';
+            historyItem.innerHTML = `
+                <span class="history-expression">${item.expression}</span>
+                <span class="history-result">= ${item.result}</span>
+            `;
+            recentHistory.appendChild(historyItem);
+        });
+    }
+    
+    /**
+     * Añade una operación al historial
+     * @param {string} expression - Expresión matemática
+     * @param {string} result - Resultado de la operación
+     */
+    function addToHistory(expression, result) {
+        calculationHistory.push({
+            expression: expression,
+            result: result,
+            timestamp: new Date().toLocaleTimeString()
+        });
+        
+        // Mantener solo las últimas 50 operaciones
+        if (calculationHistory.length > 50) {
+            calculationHistory.shift();
+        }
+        
+        updateRecentHistory();
+    }
+    
+    // ============================================
+    // 3. FUNCIONES DE MANEJO DE MEMORIA
+    // ============================================
+    
+    /**
+     * Actualiza el indicador de memoria
+     */
+    function updateMemoryIndicator() {
+        if (memoryValue !== 0) {
+            memoryIndicator.style.display = 'inline-flex';
+            memoryIndicator.title = `Memoria: ${memoryValue}`;
+        } else {
+            memoryIndicator.style.display = 'none';
+        }
+    }
+    
+    /**
+     * Maneja las operaciones de memoria
+     * @param {string} action - Acción a realizar (memory-clear, memory-recall, etc.)
+     */
+    function handleMemoryAction(action) {
+        switch(action) {
+            case 'memory-clear':
+                memoryValue = 0;
+                showNotification('Memoria borrada');
+                break;
+                
+            case 'memory-recall':
+                if (memoryValue !== 0) {
+                    currentValue = memoryValue.toString();
+                    updateDisplay(currentValue);
+                    showNotification(`Memoria recuperada: ${memoryValue}`);
+                } else {
+                    showNotification('La memoria está vacía', 'error');
+                }
+                break;
+                
+            case 'memory-add':
+                if (!isErrorState) {
+                    memoryValue += parseFloat(currentValue) || 0;
+                    showNotification(`Sumado a memoria: ${formatNumber(currentValue)}`);
+                }
+                break;
+                
+            case 'memory-subtract':
+                if (!isErrorState) {
+                    memoryValue -= parseFloat(currentValue) || 0;
+                    showNotification(`Restado de memoria: ${formatNumber(currentValue)}`);
+                }
+                break;
+        }
+        
+        updateMemoryIndicator();
+    }
+    
+    // ============================================
+    // 4. FUNCIONES MATEMÁTICAS
+    // ============================================
+    
+    /**
+     * Realiza el cálculo basado en el operador
+     * @param {number} a - Primer número
+     * @param {number} b - Segundo número
+     * @param {string} operator - Operador (+, -, ×, ÷)
+     * @returns {number|string} Resultado o mensaje de error
+     */
+    function calculate(a, b, operator) {
+        a = parseFloat(a);
+        b = parseFloat(b);
+        
+        switch(operator) {
+            case 'add':
+                return a + b;
+                
+            case 'subtract':
+                return a - b;
+                
+            case 'multiply':
+                return a * b;
+                
+            case 'divide':
+                if (b === 0) {
+                    return 'Error';
+                }
+                return a / b;
+                
+            case 'percentage':
+                return (a * b) / 100;
+                
+            default:
+                return b;
+        }
+    }
+    
+    /**
+     * Realiza cálculos científicos
+     * @param {string} action - Acción a realizar
+     * @param {number} value - Valor sobre el que operar
+     * @returns {number|string} Resultado
+     */
+    function scientificCalculation(action, value) {
+        const num = parseFloat(value);
+        
+        switch(action) {
+            case 'square-root':
+                if (num < 0) {
+                    return 'Error';
+                }
+                return Math.sqrt(num);
+                
+            case 'square':
+                return num * num;
+                
+            case 'sin':
+                return Math.sin(num * (Math.PI / 180)); // Convertir a radianes
+                
+            case 'cos':
+                return Math.cos(num * (Math.PI / 180));
+                
+            case 'tan':
+                return Math.tan(num * (Math.PI / 180));
+                
+            case 'pi':
+                return Math.PI;
+                
+            case 'factorial':
+                if (num < 0 || !Number.isInteger(num)) {
+                    return 'Error';
+                }
+                if (num === 0 || num === 1) return 1;
+                let result = 1;
+                for (let i = 2; i <= num; i++) {
+                    result *= i;
+                }
+                return result;
+                
+            default:
+                return num;
+        }
+    }
+    
+    // ============================================
+    // 5. MANEJO DE ENTRADA DE NÚMEROS Y OPERACIONES
+    // ============================================
+    
+    /**
+     * Maneja la entrada de un número
+     * @param {string} number - Número a añadir
+     */
+    function inputNumber(number) {
+        // Si hay un error, reiniciar
+        if (isErrorState) {
+            resetCalculator();
+            isErrorState = false;
+            errorIndicator.style.display = 'none';
+        }
+        
+        // Si estamos esperando un nuevo valor (después de operador)
+        if (waitingForNewValue) {
+            currentValue = number;
+            waitingForNewValue = false;
+        } else {
+            // Evitar múltiples ceros al inicio
+            if (currentValue === '0' && number !== '.') {
+                currentValue = number;
+            } else {
+                // Limitar la longitud del número
+                if (currentValue.replace('.', '').length < 12) {
+                    currentValue += number;
+                }
+            }
+        }
+        
+        updateDisplay(currentValue);
+    }
+    
+    /**
+     * Maneja la entrada del punto decimal
+     */
+    function inputDecimal() {
+        if (isErrorState) return;
+        
+        if (waitingForNewValue) {
+            currentValue = '0.';
+            waitingForNewValue = false;
+        } else if (!currentValue.includes('.')) {
+            currentValue += '.';
+        }
+        
+        updateDisplay(currentValue);
+    }
+    
+    /**
+     * Maneja la entrada de un operador
+     * @param {string} operator - Operador a aplicar
+     */
+    function inputOperator(operator) {
+        if (isErrorState) return;
+        
+        const inputValue = parseFloat(currentValue);
+        
+        // Si ya hay un operador pendiente, calcular primero
+        if (previousValue !== null && currentOperator !== null && !waitingForNewValue) {
+            const result = calculate(previousValue, inputValue, currentOperator);
+            
+            // Manejar errores
+            if (result === 'Error' || result === 'Infinity' || isNaN(result)) {
+                handleError();
+                return;
+            }
+            
+            // Añadir al historial
+            const operatorSymbol = getOperatorSymbol(currentOperator);
+            addToHistory(`${previousValue} ${operatorSymbol} ${inputValue}`, result.toString());
+            
+            currentValue = result.toString();
+            updateDisplay(currentValue);
+        }
+        
+        // Preparar para el siguiente valor
+        previousValue = parseFloat(currentValue);
+        currentOperator = operator;
+        waitingForNewValue = true;
+        
+        updateHistoryDisplay();
+    }
+    
+    /**
+     * Realiza el cálculo final
+     */
+    function performCalculation() {
+        if (previousValue === null || currentOperator === null || waitingForNewValue) {
+            return;
+        }
+        
+        const inputValue = parseFloat(currentValue);
+        const result = calculate(previousValue, inputValue, currentOperator);
+        
+        // Manejar errores
+        if (result === 'Error' || result === 'Infinity' || isNaN(result)) {
+            handleError();
+            return;
+        }
+        
+        // Añadir al historial
+        const operatorSymbol = getOperatorSymbol(currentOperator);
+        addToHistory(`${previousValue} ${operatorSymbol} ${inputValue}`, result.toString());
+        
+        // Actualizar pantalla
+        currentValue = result.toString();
+        updateDisplay(currentValue);
+        
+        // Reiniciar estado
+        previousValue = null;
+        currentOperator = null;
+        waitingForNewValue = true;
+        updateHistoryDisplay();
+    }
+    
+    /**
+     * Obtiene el símbolo del operador para mostrar
+     * @param {string} operator - Operador interno
+     * @returns {string} Símbolo del operador
+     */
+    function getOperatorSymbol(operator) {
+        const symbols = {
+            'add': '+',
+            'subtract': '−',
+            'multiply': '×',
+            'divide': '÷',
+            'percentage': '%'
+        };
+        return symbols[operator] || operator;
+    }
+    
+    // ============================================
+    // 6. FUNCIONES DE LIMPIEZA Y RESET
+    // ============================================
+    
+    /**
+     * Limpia la entrada actual
+     */
+    function clearEntry() {
+        currentValue = '0';
+        updateDisplay(currentValue);
+    }
+    
+    /**
+     * Limpia todo (reset completo)
+     */
+    function clearAll() {
+        currentValue = '0';
+        previousValue = null;
+        currentOperator = null;
+        waitingForNewValue = false;
+        isErrorState = false;
+        errorIndicator.style.display = 'none';
+        updateDisplay(currentValue);
+        updateHistoryDisplay();
+    }
+    
+    /**
+     * Elimina el último dígito
+     */
+    function deleteLastDigit() {
+        if (isErrorState) {
+            clearAll();
+            return;
+        }
+        
+        if (currentValue.length > 1) {
+            currentValue = currentValue.slice(0, -1);
+        } else {
+            currentValue = '0';
+        }
+        
+        updateDisplay(currentValue);
+    }
+    
+    /**
+     * Cambia el signo del número actual
+     */
+    function toggleSign() {
+        if (isErrorState) return;
+        
+        if (currentValue !== '0') {
+            if (currentValue.startsWith('-')) {
+                currentValue = currentValue.substring(1);
+            } else {
+                currentValue = '-' + currentValue;
+            }
+            updateDisplay(currentValue);
+        }
+    }
+    
+    /**
+     * Reinicia completamente la calculadora
+     */
+    function resetCalculator() {
+        clearAll();
+        memoryValue = 0;
+        calculationHistory = [];
+        updateMemoryIndicator();
+        updateRecentHistory();
+        showNotification('Calculadora reiniciada');
+    }
+    
+    // ============================================
+    // 7. MANEJO DE ERRORES Y NOTIFICACIONES
+    // ============================================
+    
+    /**
+     * Maneja un error en la calculadora
+     */
+    function handleError() {
+        currentValue = 'Error';
+        isErrorState = true;
+        errorIndicator.style.display = 'inline-flex';
+        updateDisplay(currentValue);
+        showNotification('Error matemático', 'error');
+    }
+    
+    /**
+     * Muestra una notificación temporal
+     * @param {string} message - Mensaje a mostrar
+     * @param {string} type - Tipo de notificación (success, error, info)
+     */
+    function showNotification(message, type = 'success') {
+        // Crear elemento de notificación
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s ease-out;
+            max-width: 300px;
+        `;
+        
+        // Colores según tipo
+        if (type === 'success') {
+            notification.style.backgroundColor = '#27ae60';
+        } else if (type === 'error') {
+            notification.style.backgroundColor = '#e74c3c';
+        } else {
+            notification.style.backgroundColor = '#3498db';
+        }
+        
+        // Añadir al documento
+        document.body.appendChild(notification);
+        
+        // Eliminar después de 3 segundos
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease-in';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    // ============================================
+    // 8. MANEJO DE TECLADO
+    // ============================================
+    
+    /**
+     * Maneja la entrada por teclado
+     * @param {KeyboardEvent} event - Evento de teclado
+     */
+    function handleKeyboardInput(event) {
+        const key = event.key;
+        
+        // Prevenir comportamiento por defecto para teclas de la calculadora
+        if ('0123456789.+-*/=EnterEscapeDeleteBackspace'.includes(key)) {
+            event.preventDefault();
+        }
+        
+        // Mapeo de teclas a funciones
+        switch(key) {
+            case '0': case '1': case '2': case '3': case '4':
+            case '5': case '6': case '7': case '8': case '9':
+                inputNumber(key);
+                break;
+                
+            case '.':
+            case ',':
+                inputDecimal();
+                break;
+                
+            case '+':
+                inputOperator('add');
+                break;
+                
+            case '-':
+                inputOperator('subtract');
+                break;
+                
+            case '*':
+                inputOperator('multiply');
+                break;
+                
+            case '/':
+                inputOperator('divide');
+                break;
+                
+            case '=':
+            case 'Enter':
+                performCalculation();
+                break;
+                
+            case 'Escape':
+            case 'c':
+            case 'C':
+                clearAll();
+                break;
+                
+            case 'Delete':
+            case 'Backspace':
+                deleteLastDigit();
+                break;
+                
+            case '%':
+                inputOperator('percentage');
+                break;
+        }
+    }
+    
+    // ============================================
+    // 9. CONFIGURACIÓN DE EVENT LISTENERS
+    // ============================================
+    
+    /**
+     * Configura todos los event listeners
+     */
+    function setupEventListeners() {
+        // Event listeners para botones de números
+        document.querySelectorAll('.number-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                inputNumber(button.getAttribute('data-number'));
+            });
+        });
+        
+        // Event listeners para botones de operaciones
+        document.querySelectorAll('.operation-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const action = button.getAttribute('data-action');
+                if (['percentage', 'square-root', 'square'].includes(action)) {
+                    // Operacione
+
+
+
+TELEFONO SIMPLE:
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Teléfono con Historial</title>
+  <link rel="stylesheet" href="Prueba.css">
+</head>
+<body>
+
+  <h1>Teléfono</h1>
+
+  <div class="telefono">
+    <div id="pantalla"></div>
+
+    <div class="teclado">
+      <button data-tecla="1">1</button>
+      <button data-tecla="2">2</button>
+      <button data-tecla="3">3</button>
+
+      <button data-tecla="4">4</button>
+      <button data-tecla="5">5</button>
+      <button data-tecla="6">6</button>
+
+      <button data-tecla="7">7</button>
+      <button data-tecla="8">8</button>
+      <button data-tecla="9">9</button>
+
+      <button data-tecla="0" class="cero">0</button>
+      <button data-tecla="borrar">⌫</button>
+      <button data-tecla="llamar">📞</button>
+      <button data-tecla="eliminar">C</button>
+    </div>
+  </div>
+
+  <h2>Historial de llamadas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody id="historial"></tbody>
+  </table>
+
+  <script src="Prueba.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+.telefono {
+  width: 260px;
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#pantalla {
+  background: black;
+  color: lime;
+  font-size: 24px;
+  height: 40px;
+  padding: 5px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cero {
+  grid-column: span 3;
+}
+
+table {
+  border-collapse: collapse;
+  width: 300px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+// ----- TABLA DE TECLAS -----
+const teclado = [
+  { tecla: "1", tipo: "numero" },
+  { tecla: "2", tipo: "numero" },
+  { tecla: "3", tipo: "numero" },
+  { tecla: "4", tipo: "numero" },
+  { tecla: "5", tipo: "numero" },
+  { tecla: "6", tipo: "numero" },
+  { tecla: "7", tipo: "numero" },
+  { tecla: "8", tipo: "numero" },
+  { tecla: "9", tipo: "numero" },
+  { tecla: "0", tipo: "numero" },
+  { tecla: "borrar", tipo: "accion" },
+  { tecla: "llamar", tipo: "accion" },
+  { tecla: "eliminar", tipo: "accion"}
+];
+
+// ----- ESTADO DEL TELÉFONO -----
+const telefono = {
+  numeroActual: "",
+  historial: []
+};
+
+// ----- PROCESAR TECLA -----
+function procesarTecla(teclaObj) {
+
+  if (teclaObj.tipo === "numero") {
+    telefono.numeroActual += teclaObj.tecla;
+  }
+
+  if (teclaObj.tecla === "borrar") {
+    telefono.numeroActual = telefono.numeroActual.slice(0, -1);
+  }
+  
+  if (teclaObj.tecla === "eliminar") {
+    telefono.numeroActual = telefono.numeroActual.slice(0, -99);
+  }
+
+  if (teclaObj.tecla === "llamar") {
+    if (telefono.numeroActual !== "") {
+      telefono.historial.push({
+        numero: telefono.numeroActual,
+        fecha: new Date().toLocaleString()
+      });
+      telefono.numeroActual = "";
+    }
+  }
+
+  actualizarPantalla();
+  actualizarHistorial();
+}
+
+// ----- ACTUALIZAR PANTALLA -----
+function actualizarPantalla() {
+  document.getElementById("pantalla").textContent = telefono.numeroActual;
+}
+
+// ----- ACTUALIZAR TABLA HISTORIAL -----
+function actualizarHistorial() {
+  const tbody = document.getElementById("historial");
+  tbody.innerHTML = "";
+
+  telefono.historial.forEach(llamada => {
+    const fila = document.createElement("tr");
+
+    const tdNumero = document.createElement("td");
+    tdNumero.textContent = llamada.numero;
+
+    const tdFecha = document.createElement("td");
+    tdFecha.textContent = llamada.fecha;
+
+    fila.appendChild(tdNumero);
+    fila.appendChild(tdFecha);
+    tbody.appendChild(fila);
+  });
+}
+
+// ----- EVENTOS DEL HTML -----
+document.querySelectorAll("button").forEach(boton => 
+    {boton.addEventListener("click", () => 
+    {const valor = boton.dataset.tecla;
+    const teclaObj = teclado.find(t => t.tecla === valor);
+    procesarTecla(teclaObj);
+  });
+});
+
+
+
+-->

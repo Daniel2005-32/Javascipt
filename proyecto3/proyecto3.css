@@ -1,0 +1,141 @@
+/* Estilos para html y body - Fondo con gradiente */
+html, body {
+    background: linear-gradient(to bottom, #a8e6ff, #0077b6); /* Gradiente azul de claro a oscuro */
+    font-family: "Poppins", sans-serif; /* Fuente moderna */
+    color: #023e8a; /* Color de texto azul oscuro */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    min-height: 100vh; /* Altura mínima de toda la ventana */
+}
+
+/* Estilo para título principal */
+h1 {
+    text-align: center; /* Centrado horizontal */
+    color: #03045e; /* Color azul más oscuro */
+    font-size: 2.2em; /* Tamaño grande de fuente */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.6); /* Sombra blanca para efecto 3D */
+    margin-top: 30px; /* Espacio superior */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Estilo para la tabla del puzzle */
+table {
+    margin: 40px auto; /* Centrado con margen superior e inferior */
+    border-collapse: collapse; /* Elimina espacios entre celdas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para efecto elevado */
+    border-radius: 10px; /* Esquinas redondeadas */
+    overflow: hidden; /* Esconde contenido que sobresale de las esquinas redondeadas */
+}
+
+/* Estilo para celdas individuales */
+td {
+    width: 150px; /* Ancho fijo */
+    height: 150px; /* Alto fijo (forma cuadrada) */
+    background-color: #caf0f8; /* Color de fondo azul muy claro */
+    border: 2px solid #0077b6; /* Borde azul */
+    text-align: center; /* Centra contenido horizontalmente */
+    vertical-align: middle; /* Centra contenido verticalmente */
+    cursor: pointer; /* Cambia cursor a mano al pasar sobre celdas */
+    transition: all 0.2s ease-in-out; /* Transición suave para efectos */
+}
+
+/* Efecto hover en celdas */
+td:hover {
+    background-color: #90e0ef; /* Color más claro al pasar el mouse */
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
+}
+
+/* Estilo para imágenes dentro de celdas */
+img {
+    width: 150px; /* Mismo tamaño que la celda */
+    height: 150px; /* Mismo tamaño que la celda */
+    border-radius: 4px; /* Esquinas ligeramente redondeadas */
+}
+
+/* Estilo para botones */
+button {
+    display: block; /* Hace que cada botón ocupe toda la línea */
+    margin: 10px auto; /* Centrado con margen vertical */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #0077b6; /* Color azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 6px; /* Esquinas redondeadas */
+    font-size: 1em; /* Tamaño de fuente normal */
+    cursor: pointer; /* Cursor de mano */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background 0.3s, transform 0.2s; /* Transiciones */
+}
+
+/* Efecto hover en botones */
+button:hover {
+    background-color: #00b4d8; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de levantar el botón */
+}
+
+/* Estilo para mensajes del juego */
+#mensaje {
+    text-align: center; /* Centrado */
+    font-weight: bold; /* Negrita */
+    font-size: 1.1em; /* Tamaño ligeramente mayor */
+    margin-top: 10px; /* Margen superior */
+    color: #03045e; /* Color azul oscuro */
+}
+
+/* Estilo para contadores de movimientos y tiempo */
+#contador-mov,
+#contador-tiempo {
+    text-align: center; /* Centrado */
+    font-size: 1em; /* Tamaño normal */
+    color: #023e8a; /* Color azul */
+    margin: 5px; /* Margen pequeño */
+}
+
+/* Estilo para sección de ranking */
+#ranking {
+    background: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+    margin: 20px auto; /* Centrado con margen vertical */
+    width: 300px; /* Ancho fijo */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+/* Título dentro del ranking */
+#ranking h3 {
+    text-align: center; /* Centrado */
+    color: #03045e; /* Color azul oscuro */
+    margin-bottom: 8px; /* Margen inferior */
+}
+
+/* Lista ordenada dentro del ranking */
+#ranking ol {
+    padding-left: 25px; /* Sangría para números de lista */
+    margin: 0; /* Sin margen */
+    font-size: 0.95em; /* Tamaño de fuente ligeramente menor */
+}
+
+/* Elementos individuales de la lista */
+#ranking li {
+    padding: 3px 0; /* Espaciado vertical entre elementos */
+    color: #0077b6; /* Color azul */
+}
+
+/* Estilo para input de nombre de jugador */
+#nombre-jugador {
+    display: block; /* Ocupa toda la línea */
+    margin: 10px auto; /* Centrado */
+    padding: 8px; /* Espaciado interno */
+    width: 200px; /* Ancho fijo */
+    border: 2px solid #00b4d8; /* Borde azul claro */
+    border-radius: 5px; /* Esquinas redondeadas */
+    font-size: 1em; /* Tamaño normal */
+    text-align: center; /* Texto centrado */
+    outline: none; /* Elimina contorno por defecto */
+    transition: border-color 0.2s; /* Transición para cambio de borde */
+}
+
+/* Estilo cuando el input está enfocado */
+#nombre-jugador:focus {
+    border-color: #03045e; /* Borde azul más oscuro al hacer focus */
+}

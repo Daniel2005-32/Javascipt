@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CONFIGURACIONES BÁSICAS DEL DOCUMENTO -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres (soporta español) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <link rel="stylesheet" href="Proyecto5.css"> <!-- Enlace a hoja de estilos CSS -->
+    <script src="Proyecto5.js"></script> <!-- Enlace a archivo JavaScript -->
+    <title>Formulario</title> <!-- Título que aparece en la pestaña del navegador -->
+</head>
+
+<body>
+    <!-- FORMULARIO PRINCIPAL -->
+    <form class="formulario" id="formulario">
+        <!-- CAMPO 1: NOMBRE -->
+        <label class="texto" for="nombre">Nombre:</label><br>
+        <!-- 
+            for="nombre" → Asocia este label con el input de id="nombre"
+            type="text" → Campo de texto
+            id="nombre" → Identificador único para JavaScript/CSS
+            name="nombre" → Nombre para enviar datos al servidor
+            placeholder="Nombre" → Texto guía dentro del campo
+        -->
+        <input class="escribir" type="text" , id="nombre" , name="nombre" placeholder="Nombre"> 
+        <span class="error"></span><br> <!-- Aquí aparecerán los mensajes de error -->
+
+        <!-- CAMPO 2: APELLIDOS -->
+        <label class="texto" for="apellidos">Apellidos:</label><br>
+        <input class="escribir" type="text" , id="apellidos" , name="apellidos" placeholder="Apellidos">
+        <span class="error"></span><br>
+
+        <!-- CAMPO 3: DNI -->
+        <label class="texto" for="dni">DNI:</label><br>
+        <input class="escribir" type="text" , id="dni" , name="dni" placeholder="DNI">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 4: FECHA DE NACIMIENTO -->
+        <label class="texto" for="nacimiento">Fecha de Nacimiento:</label><br>
+        <input class="escribir" type="text" , id="nacimiento" , name="nacimiento" placeholder="Fecha de Nacimiento">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 5: CÓDIGO POSTAL -->
+        <label class="texto" for="codigo">Codigo Postal:</label><br>
+        <input class="escribir" type="text" , id="codigo" , name="codigo" placeholder="Codigo Postal">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 6: EMAIL -->
+        <label class="texto" for="email">E-mail:</label><br>
+        <input class="escribir" type="text" , id="email" , name="email" placeholder="E-mail">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 7: TELÉFONO FIJO (opcional) -->
+        <label class="texto" for="fijo">Telefono fijo:</label><br>
+        <input class="escribir" type="text" , id="fijo" , name="fijo" placeholder="Telefono fijo">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 8: TELÉFONO MÓVIL -->
+        <label class="texto" for="movil">Telefono movil:</label><br>
+        <input class="escribir" type="text" , id="movil" , name="movil" placeholder="Telefono movil">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 9: IBAN (Número de cuenta bancaria) -->
+        <label class="texto" for="iban">IBAN:</label><br>
+        <input class="escribir" type="text" , id="iban" , name="iban" placeholder="IBAN">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 10: TARJETA DE CRÉDITO -->
+        <label class="texto" for="tarjeta">Tarjeta de Credito:</label><br>
+        <input class="escribir" type="text" , id="tarjeta" , name="tarjeta" placeholder="Tarjeta de Credito">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 11: CONTRASEÑA -->
+        <label class="texto" for="contrasenha">Contraseña:</label><br>
+        <!-- 
+            type="password" → Oculta los caracteres con puntos (***)
+            IMPORTANTE: "contrasenha" está mal escrito, debería ser "contraseña"
+        -->
+        <input class="escribir" type="password" , id="contrasenha" , name="contrasenha" placeholder="Contraseña">
+        <span class="error"></span><br>
+        
+        <!-- CAMPO 12: REPETIR CONTRASEÑA (para confirmación) -->
+        <label class="texto" for="repetir">Repetir Contraseña:</label><br>
+        <!-- ERROR: FALTA la comilla después de id= -->
+        <input class="escribir" type="password" , id=repetir" , name="repetir" placeholder="Repetir Contraseña">
+        <span class="error"></span><br>
+        
+        <!-- BOTONES DEL FORMULARIO -->
+        <button class="guardar">GUARDAR</button> <!-- Botón para guardar datos -->
+        <button class="recuperar">RECUPERAR</button> <!-- Botón para recuperar datos guardados -->
+        <!-- 
+            type="submit" no está definido, por lo que son botones normales
+            El JavaScript se encarga de evitar el envío tradicional del formulario
+        -->
+    </form>
+</body>
+
+</html>

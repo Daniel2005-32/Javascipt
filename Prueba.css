@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 20px;
+}
+
+.telefono {
+  width: 260px;
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+#pantalla {
+  background: black;
+  color: lime;
+  font-size: 24px;
+  height: 40px;
+  padding: 5px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+button {
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cero {
+  grid-column: span 3;
+}
+
+table {
+  border-collapse: collapse;
+  width: 300px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}

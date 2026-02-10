@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Moderna</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- CABECERA CON TÍTULO -->
+        <header class="header">
+            <h1><i class="fas fa-calculator"></i> Calculadora Avanzada</h1>
+            <p class="subtitle">Realiza operaciones matemáticas básicas y científicas</p>
+        </header>
+        
+        <main class="calculator-container">
+            <!-- PANTALLA DE LA CALCULADORA -->
+            <div class="calculator-screen">
+                <!-- FILA SUPERIOR: HISTORIAL Y BORRAR -->
+                <div class="screen-top">
+                    <div class="history" id="history">
+                        <!-- Aquí aparecerán las operaciones anteriores -->
+                    </div>
+                    <button class="clear-history" id="clearHistory" title="Borrar historial">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+                
+                <!-- PANTALLA PRINCIPAL -->
+                <div class="display" id="display">0</div>
+                
+                <!-- INDICADORES DE ESTADO -->
+                <div class="indicators">
+                    <span class="indicator" id="memoryIndicator" title="Memoria activa">
+                        <i class="fas fa-sd-card"></i> M
+                    </span>
+                    <span class="indicator" id="errorIndicator" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i> Error
+                    </span>
+                </div>
+            </div>
+            
+            <!-- TECLADO DE LA CALCULADORA -->
+            <div class="calculator-keypad">
+                <!-- FILA 1: FUNCIONES ESPECIALES Y MEMORIA -->
+                <div class="row special-functions">
+                    <button class="btn memory-btn" data-action="memory-clear" title="Borrar memoria">
+                        MC
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-recall" title="Recuperar memoria">
+                        MR
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-add" title="Sumar a memoria">
+                        M+
+                    </button>
+                    <button class="btn memory-btn" data-action="memory-subtract" title="Restar de memoria">
+                        M-
+                    </button>
+                    <button class="btn clear-btn" data-action="clear-entry" title="Borrar entrada">
+                        CE
+                    </button>
+                    <button class="btn clear-btn" data-action="clear" title="Borrar todo">
+                        C
+                    </button>
+                    <button class="btn delete-btn" data-action="delete" title="Borrar último dígito">
+                        <i class="fas fa-backspace"></i>
+                    </button>
+                </div>
+                
+                <!-- FILA 2: OPERACIONES BÁSICAS -->
+                <div class="row">
+                    <button class="btn operation-btn" data-action="percentage" title="Porcentaje">
+                        %
+                    </button>
+                    <button class="btn operation-btn" data-action="square-root" title="Raíz cuadrada">
+                        √
+                    </button>
+                    <button class="btn operation-btn" data-action="square" title="Elevar al cuadrado">
+                        x²
+                    </button>
+                    <button class="btn operation-btn" data-action="divide" title="Dividir">
+                        ÷
+                    </button>
+                </div>
+                
+                <!-- FILA 3: NÚMEROS 7, 8, 9 Y MULTIPLICAR -->
+                <div class="row">
+                    <button class="btn number-btn" data-number="7">
+                        7
+                    </button>
+                    <button class="btn number-btn" data-number="8">
+                        8
+                    </button>
+                    <button class="btn number-btn" data-number="9">
+                        9
+                    </button>
+                    <button class="btn operation-btn" data-action="multiply" title="Multiplicar">
+                        ×
+                    </button>
+                </div>
+                
+                <!-- FILA 4: NÚMEROS 4, 5, 6 Y RESTAR -->
+                <div class="row">
+                    <button class="btn number-btn" data-number="4">
+                        4
+                    </button>
+                    <button class="btn number-btn" data-number="5">
+                        5
+                    </button>
+                    <button class="btn number-btn" data-number="6">
+                        6
+                    </button>
+                    <button class="btn operation-btn" data-action="subtract" title="Restar">
+                        −
+                    </button>
+                </div>
+                
+                <!-- FILA 5: NÚMEROS 1, 2, 3 Y SUMAR -->
+                <div class="row">
+                    <button class="btn number-btn" data-number="1">
+                        1
+                    </button>
+                    <button class="btn number-btn" data-number="2">
+                        2
+                    </button>
+                    <button class="btn number-btn" data-number="3">
+                        3
+                    </button>
+                    <button class="btn operation-btn add-btn" data-action="add" title="Sumar">
+                        +
+                    </button>
+                </div>
+                
+                <!-- FILA 6: NÚMEROS 0, DECIMAL, SIGNO Y RESULTADO -->
+                <div class="row">
+                    <button class="btn number-btn zero-btn" data-number="0">
+                        0
+                    </button>
+                    <button class="btn decimal-btn" data-action="decimal" title="Punto decimal">
+                        .
+                    </button>
+                    <button class="btn sign-btn" data-action="toggle-sign" title="Cambiar signo">
+                        ±
+                    </button>
+                    <button class="btn equals-btn" data-action="calculate" title="Calcular">
+                        =
+                    </button>
+                </div>
+                
+                <!-- FILA EXTRA: FUNCIONES ADICIONALES -->
+                <div class="row extra-functions">
+                    <button class="btn extra-btn" data-action="sin" title="Seno">
+                        sin
+                    </button>
+                    <button class="btn extra-btn" data-action="cos" title="Coseno">
+                        cos
+                    </button>
+                    <button class="btn extra-btn" data-action="tan" title="Tangente">
+                        tan
+                    </button>
+                    <button class="btn extra-btn" data-action="pi" title="Valor de π">
+                        π
+                    </button>
+                    <button class="btn extra-btn" data-action="factorial" title="Factorial">
+                        n!
+                    </button>
+                </div>
+            </div>
+            
+            <!-- PANEL DE INFORMACIÓN -->
+            <div class="info-panel">
+                <div class="info-section">
+                    <h3><i class="fas fa-lightbulb"></i> Atajos de teclado</h3>
+                    <ul>
+                        <li><kbd>0-9</kbd> : Números</li>
+                        <li><kbd>+ - * /</kbd> : Operaciones</li>
+                        <li><kbd>Enter</kbd> o <kbd>=</kbd> : Calcular</li>
+                        <li><kbd>Escape</kbd> o <kbd>C</kbd> : Borrar</li>
+                        <li><kbd>Delete</kbd> o <kbd>Backspace</kbd> : Borrar dígito</li>
+                    </ul>
+                </div>
+                
+                <div class="info-section">
+                    <h3><i class="fas fa-history"></i> Historial reciente</h3>
+                    <div class="recent-history" id="recentHistory">
+                        <p class="empty-history">No hay operaciones recientes</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- PIE DE PÁGINA -->
+        <footer class="footer">
+            <p>Calculadora v1.0 • Hecha con <i class="fas fa-heart"></i> usando HTML, CSS y JavaScript</p>
+            <p class="footer-links">
+                <button class="footer-btn" id="themeToggle" title="Cambiar tema">
+                    <i class="fas fa-moon"></i> Tema Oscuro
+                </button>
+                <button class="footer-btn" id="resetCalculator" title="Reiniciar calculadora">
+                    <i class="fas fa-redo"></i> Reiniciar
+                </button>
+            </p>
+        </footer>
+    </div>
+    
+    <script src="calculadora.js"></script>
+</body>
+</html>

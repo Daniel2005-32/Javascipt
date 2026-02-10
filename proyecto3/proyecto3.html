@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Codificación para caracteres internacionales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Diseño responsive -->
+    <title>Puzzle deslizante</title> <!-- Título de la pestaña -->
+    
+    <!-- Recursos externos -->
+    <link rel="stylesheet" href="proyecto3.css"> <!-- Hoja de estilos personalizada -->
+    <script src="proyecto3.js"></script> <!-- Script con la lógica del juego -->
+</head>
+<body>
+    <!-- Título principal del juego -->
+    <h1>Bienvenido al Puzzle deslizante</h1>
+    
+    <!-- Tabla 3x3 que contiene el puzzle -->
+    <table>
+        <!-- Primera fila del puzzle -->
+        <tr>
+            <td id="parte1"><img src="row-1-column-1.jpg"></td> <!-- Pieza superior izquierda -->
+            <td id="parte2"><img src="row-1-column-2.jpg"></td> <!-- Pieza superior central -->
+            <td id="parte3"><img src="row-1-column-3.jpg"></td> <!-- Pieza superior derecha -->
+        </tr>
+        
+        <!-- Segunda fila del puzzle -->
+        <tr>
+            <td id="parte4"><img src="row-2-column-1.jpg"></td> <!-- Pieza central izquierda -->
+            <td id="parte5"><img src="row-2-column-2.jpg"></td> <!-- Pieza central (posición inicial vacía) -->
+            <td id="parte6"><img src="row-2-column-3.jpg"></td> <!-- Pieza central derecha -->
+        </tr>
+        
+        <!-- Tercera fila del puzzle -->
+        <tr>
+            <td id="parte7"><img src="row-3-column-1.jpg"></td> <!-- Pieza inferior izquierda -->
+            <td id="parte8"><img src="row-3-column-2.jpg"></td> <!-- Pieza inferior central -->
+            <td id="parte9"></td> <!-- Pieza inferior derecha (vacía inicialmente) -->
+        </tr>
+    </table>
+    
+    <!-- Salto de línea para separación visual -->
+    <br>
+    
+    <!-- Input para nombre del jugador -->
+    <label for="nombre-jugador"></label> <!-- Falta texto en la etiqueta -->
+    <input type="text" id="nombre-jugador" placeholder="Tu nombre"> <!-- Placeholder como guía -->
+    
+    <!-- Salto de línea -->
+    <br>
+    
+    <!-- Botón para iniciar juego -->
+    <button onclick="inicioJuego()">Iniciar juego</button><br>
+    
+    <!-- Salto de línea y botón para guardar partida -->
+    <br><button onclick="guardarPartida()">Guardar partida</button><br>
+    
+    <!-- Botón para cargar partida guardada -->
+    <br><button onclick="cargarPartida()">Cargar partida</button>
+
+    <!-- Mensajes dinámicos del juego -->
+    <p id="mensaje"></p> <!-- Para mensajes de estado -->
+    <p id="contador-mov">Movimientos: 0</p> <!-- Contador de movimientos -->
+    <p id="contador-tiempo">Tiempo: 0 s</p> <!-- Contador de tiempo -->
+
+    <!-- Contenedor para ranking de mejores tiempos -->
+    <div id="ranking"></div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* ESTILOS GENERALES DEL FORMULARIO */
+.formulario{
+    text-align: center; /* Centra todo el contenido del formulario */
+}
+
+/* ESTILOS PARA LAS ETIQUETAS (labels) */
+.texto{
+    font-size: 20px; /* Tamaño de fuente grande */
+    font-weight: bolder; /* Texto en negrita */
+}
+
+/* ESTILOS PARA LOS CAMPOS DE ENTRADA (inputs) */
+.escribir{
+    border: solid rgb(240, 218, 218); /* Borde sólido color rosa claro */
+    width: 400px; /* Ancho fijo de 400px */
+    padding-top: 0.5%; /* Espaciado interno arriba (0.5% del alto) */
+    padding-bottom: 0.5%; /* Espaciado interno abajo */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 20px; /* Tamaño de fuente igual que las labels */
+    margin-bottom: 2%; /* Espacio debajo de cada campo */
+}
+
+/* CLASE PARA CAMPOS CON ERROR (se añade dinámicamente con JavaScript) */
+.escribir.error-input{
+    border-color: red ; /* Borde rojo cuando hay error */
+    background-color: #ffe6e6; /* Fondo rojo muy claro */
+}
+
+/* CLASE PARA CAMPOS CORRECTOS (se añade dinámicamente con JavaScript) */
+.escribir.correcto{
+    border-color: green; /* Borde verde cuando es válido */
+    background-color: #e9ffe9; /* Fondo verde muy claro */
+}
+
+/* ESTILOS GENERALES PARA TODOS LOS BOTONES */
+button{
+    width: 100px; /* Ancho fijo de 100px */
+    padding-top: 1%; /* Espaciado interno arriba */
+    padding-bottom: 1%; /* Espaciado interno abajo */
+    font-size: 12px; /* Tamaño de fuente más pequeño que los campos */
+    margin-right: 5%; /* Espacio a la derecha entre botones */
+    margin-left: 5%; /* Espacio a la izquierda entre botones */
+}
+
+/* EFECTO HOVER PARA BOTÓN GUARDAR */
+.guardar:hover{
+    background-color: rgb(111, 234, 55); /* Fondo verde claro al pasar el ratón */
+}
+
+/* EFECTO HOVER PARA BOTÓN RECUPERAR */
+.recuperar:hover{
+    background-color: rgb(28, 184, 227); /* Fondo azul claro al pasar el ratón */
+}
+
+/* ESTILOS PARA MENSAJES DE ERROR */
+.error{
+    color: red; /* Texto en color rojo */
+    font-size: 16px; /* Tamaño de fuente medio */
+    /* NOTA: Estos elementos <span> están vacíos inicialmente */
+    /* JavaScript los llena con mensajes de error cuando es necesario */
+}

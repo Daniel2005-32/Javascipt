@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Configuración básica del documento -->
+  <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+  <title>Reserva de vuelos</title> <!-- Título de la pestaña -->
+  
+  <!-- Enlaces a recursos externos -->
+  <link rel="stylesheet" href="proyecto2.css"> <!-- Hoja de estilos -->
+  <script src="proyecto2.js" defer></script> <!-- Script JS (defer para cargar después del HTML) -->
+</head>
+<body>
+    <!-- Vista inicial - Selección de aerolínea -->
+    <div id="inicio">
+        <h1>Bienvenido, elija su aerolínea por favor</h1>
+        
+        <!-- Tabla con logos de aerolíneas -->
+        <table>
+          <!-- Fila para Binter -->
+          <tr><th><img src="Binter.png" id="btnBinter" class="logo"></th></tr>
+          
+          <!-- Fila para Iberia -->
+          <tr><th><img src="Iberia.png" id="btnIberia" class="logo"></th></tr>
+          
+          <!-- Fila para CanaryFly -->
+          <tr><th><img src="CanaryFly.png" id="btnCanary" class="logo"></th></tr>
+        </table>
+    </div>
+
+    
+    <!-- Vista de aerolínea (oculta inicialmente) -->
+    <div id="vistaAereolinea" style="display:none; text-align:center;">
+        <!-- Logo de la aerolínea seleccionada -->
+        <img id="logoCompanhia" width="150" alt="Logo Aerolínea">
+        
+        <!-- Información de precios -->
+        <p><strong>Precio base:</strong> <span id="precioBase"></span> €</p>
+        
+        <!-- Información de dimensiones del avión -->
+        <p><strong>Filas:</strong> <span id="Filas"></span> - <strong> Columnas</strong> <span id="Columnas"></span></p>
+        
+        <!-- Botones de navegación -->
+        <button onclick="volverInicio()">Volver al inicio</button><br>
+        <button id="btnVerTotal" style="margin-top:15px;">¿Todo listo?</button>
+        
+        <!-- Contenedor para tabla de asientos (generada dinámicamente) -->
+        <div id="tabla"></div>
+        
+        <!-- Sección para mostrar total de reservas (oculta inicialmente) -->
+        <div id="totalReservas" style="display:none; font-size:1.2rem; color:#004080; margin-top:15px;">
+            Total reservado: <span id="precioTotal">0.00</span> €
+            <br> <!-- Salto de línea -->
+        </div>
+    </div>
+</body>
+</html>

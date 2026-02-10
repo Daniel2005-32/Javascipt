@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Codificación UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    <title>Arbol de directores</title> <!-- Título de la aplicación -->
+    
+    <!-- Recursos externos -->
+    <link rel="stylesheet" href="Proyecto4.css"> <!-- Estilos personalizados -->
+    <script src="Proyecto4.js"></script> <!-- Lógica de la aplicación -->
+</head>
+<body>
+
+    <!-- Panel lateral con instrucciones de uso -->
+    <div class="indice">
+        <h3>Para crear una carpeta tiene que darle al simbolo + y para crear un archivo debe darle a la carpeta</h3>
+    </div>
+    
+    <!-- Título principal -->
+    <h1>Árbol de Directores</h1>
+
+    <!-- Formulario para crear nuevos elementos -->
+    <form id="createForm">
+        <!-- Label e input para nombre del nuevo elemento -->
+        <label for="fileNameInput">Nombre del nuevo elemento:</label>
+        <input type="text" id="fileNameInput" placeholder="Introduzca un archivo o una carpeta" required>
+        <!-- El placeholder sirve como ejemplo de lo que debe ingresar el usuario -->
+    </form>
+
+    <!-- Contenedor para funcionalidad de filtrado -->
+    <div id="filterContainer">
+        <label for="filterInput">Filtrar:</label>
+        <!-- Input para buscar elementos en el árbol -->
+        <input type="text" id="filterInput" placeholder="Escribe un nombre... (TAB para autocompletar)">
+        <!-- Indica que TAB activa autocompletado -->
+    </div>
+
+    <!-- Contenedor principal del árbol de directorios -->
+    <div id="treeContainer">
+        <!-- Lista no ordenada que será el contenedor raíz del árbol -->
+        <ul id="root">
+            <!-- Primer elemento del árbol (carpeta raíz) -->
+            <li class="folder">
+                <div class="folder-item">
+                    <!-- Botón para eliminar (oculto inicialmente) -->
+                    <button class="deleteBtn hidden"><img src="eliminar.png" alt="Eliminar"></button>
+                    
+                    <!-- Icono de carpeta (clickeable para crear archivos) -->
+                    <img src="carpeta.png" alt="Carpeta" class="folder-icon">
+                    
+                    <!-- Nombre de la carpeta (vacío para la raíz) -->
+                    <span class="folder-name"></span>
+                    
+                    <!-- Botón para añadir subcarpetas -->
+                    <button class="addBtn">+</button>
+                </div>
+                
+                <!-- Contenedor para elementos hijos (inicialmente vacío) -->
+                <ul class="children"></ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

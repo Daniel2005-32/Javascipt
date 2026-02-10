@@ -1,0 +1,95 @@
+/* Estilos generales del cuerpo */
+body {
+  font-family: Arial, sans-serif; /* Fuente simple y legible */
+  margin: 30px; /* Margen alrededor de todo el contenido */
+  background: #f9f9f9; /* Color de fondo gris muy claro */
+}
+
+/* Panel de instrucciones */
+.indice{
+  border: solid 5px; /* Borde sólido grueso */
+  width: 15%; /* Ancho del 15% del contenedor padre */
+  text-align: center; /* Texto centrado */
+  padding: 0.5%; /* Espaciado interno pequeño */
+}
+
+/* Título principal */
+h1 {
+  text-align: center; /* Centrado horizontal */
+}
+
+/* Formulario y contenedor de filtro */
+form, #filterContainer {
+  text-align: center; /* Centra elementos inline */
+  margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Inputs de texto */
+input {
+  padding: 6px; /* Espaciado interno */
+  width: 300px; /* Ancho fijo */
+  font-size: 14px; /* Tamaño de fuente */
+}
+
+/* Contenedor principal del árbol */
+#treeContainer {
+  background: #fff; /* Fondo blanco */
+  padding: 20px; /* Espaciado interno */
+  border-radius: 10px; /* Esquinas redondeadas */
+  width: 500px; /* Ancho fijo */
+  margin: 0 auto; /* Centrado horizontal */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+/* Listas no ordenadas (estructura del árbol) */
+ul {
+  list-style-type: none; /* Elimina puntos/bullets de lista */
+  padding-left: 25px; /* Sangría para niveles anidados */
+}
+
+/* Elementos de carpeta */
+.folder-item, .file-item {
+  display: flex; /* Usa flexbox para alinear elementos en línea */
+  align-items: center; /* Centra verticalmente */
+  gap: 8px; /* Espacio entre elementos hijos */
+  margin: 4px 0; /* Margen vertical entre elementos */
+}
+
+/* Iconos de carpeta */
+.folder-icon {
+  width: 40px; /* Ancho fijo */
+  cursor: pointer; /* Cursor de mano para indicar interactividad */
+}
+
+/* Nombre de carpeta */
+.folder-name {
+  font-weight: bold; /* Texto en negrita */
+  color: #2d6cdf; /* Color azul */
+}
+
+/* Nombre de archivo */
+.file-name {
+  color: #333; /* Color gris oscuro */
+  font-style: italic; /* Texto en cursiva */
+  margin-left: 10px; /* Margen izquierdo para separar de iconos */
+}
+
+/* Botones generales */
+button {
+  cursor: pointer; /* Cursor de mano */
+  border: none; /* Sin borde */
+  background: none; /* Sin fondo */
+  font-size: 16px; /* Tamaño de fuente */
+  font-weight: bold; /* Texto en negrita */
+}
+
+/* Botones de eliminar */
+.deleteBtn{
+  width: 30px; /* Ancho fijo */
+  cursor: pointer; /* Cursor de mano */
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+  display: none; /* No muestra el elemento */
+}

@@ -1,0 +1,270 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y legible */
+    background-color: #f8f9fa; /* Color de fondo gris muy claro */
+    margin: 0; /* Sin márgenes externos */
+    padding: 20px; /* Espaciado interno alrededor del contenido */
+    color: #333; /* Color de texto principal */
+}
+
+/* Contenedor principal del formulario */
+.formulario {
+    max-width: 800px; /* Ancho máximo para buena legibilidad */
+    margin: 0 auto; /* Centrado horizontal */
+    background: white; /* Fondo blanco */
+    padding: 30px; /* Espaciado interno */
+    border-radius: 12px; /* Esquinas redondeadas */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
+}
+
+/* Estilo para etiquetas de formulario */
+.texto {
+    font-size: 16px; /* Tamaño de fuente legible */
+    font-weight: 600; /* Peso seminegrita */
+    color: #495057; /* Color gris azulado */
+    display: block; /* Ocupa toda la línea */
+    margin-top: 15px; /* Espacio superior */
+    margin-bottom: 8px; /* Espacio inferior antes del input */
+}
+
+/* Campos de entrada de texto */
+.escribir {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 12px 15px; /* Espaciado interno cómodo */
+    border: 2px solid #e0e0e0; /* Borde gris claro */
+    border-radius: 8px; /* Esquinas redondeadas */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: all 0.3s ease; /* Transición suave para efectos */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    margin-bottom: 5px; /* Espacio inferior */
+}
+
+/* Efecto cuando el campo está enfocado */
+.escribir:focus {
+    outline: none; /* Elimina el contorno por defecto */
+    border-color: #4dabf7; /* Cambia borde a azul */
+    box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.1); /* Sombra azul sutil */
+}
+
+/* Clase para campos con error de validación */
+.escribir.error-input {
+    border-color: #ff6b6b; /* Borde rojo para error */
+    background-color: #fff5f5; /* Fondo rojo muy claro */
+}
+
+/* Clase para campos validados correctamente */
+.escribir.correcto {
+    border-color: #51cf66; /* Borde verde para éxito */
+    background-color: #f8fff9; /* Fondo verde muy claro */
+}
+
+/* Botones principales (Guardar y Recuperar) */
+.guardar, .recuperar {
+    width: 200px; /* Ancho fijo */
+    padding: 14px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: 600; /* Negrita */
+    border: none; /* Sin bordes */
+    border-radius: 8px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s ease; /* Transiciones suaves */
+    margin: 10px; /* Margen alrededor */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+/* Botón Guardar específico */
+.guardar {
+    background: linear-gradient(135deg, #40c057 0%, #2f9e44 100%); /* Gradiente verde */
+    color: white; /* Texto blanco */
+}
+
+/* Efecto hover para botón Guardar */
+.guardar:hover {
+    background: linear-gradient(135deg, #2f9e44 0%, #40c057 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/* Botón Recuperar específico */
+.recuperar {
+    background: linear-gradient(135deg, #339af0 0%, #228be6 100%); /* Gradiente azul */
+    color: white; /* Texto blanco */
+}
+
+/* Efecto hover para botón Recuperar */
+.recuperar:hover {
+    background: linear-gradient(135deg, #228be6 0%, #339af0 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Efecto de elevación */
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+}
+
+/* Botones de operaciones con servidor (estilos base) */
+.boton-json,
+.boton-publicar-php,
+.boton-obtener-php,
+.boton-publicar-bd,
+.boton-obtener-bd {
+    width: 220px; /* Ancho fijo */
+    padding: 12px 15px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    font-weight: 600; /* Negrita */
+    border: none; /* Sin bordes */
+    border-radius: 6px; /* Esquinas redondeadas */
+    cursor: pointer; /* Cursor de mano */
+    transition: all 0.3s ease; /* Transiciones suaves */
+    margin: 8px 5px; /* Márgenes */
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1); /* Sombra sutil */
+    color: white; /* Texto blanco */
+}
+
+/* Botón específico para operaciones con JSON */
+.boton-json {
+    background: linear-gradient(135deg, #ff922b 0%, #e8590c 100%); /* Gradiente naranja */
+}
+
+.boton-json:hover {
+    background: linear-gradient(135deg, #e8590c 0%, #ff922b 100%); /* Invierte gradiente al hover */
+    transform: translateY(-2px); /* Elevación */
+}
+
+/* Botón para publicar datos vía PHP */
+.boton-publicar-php {
+    background: linear-gradient(135deg, #4dabf7 0%, #339af0 100%); /* Gradiente azul claro */
+}
+
+.boton-publicar-php:hover {
+    background: linear-gradient(135deg, #339af0 0%, #4dabf7 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Elevación */
+}
+
+/* Botón para obtener datos vía PHP */
+.boton-obtener-php {
+    background: linear-gradient(135deg, #20c997 0%, #12b886 100%); /* Gradiente verde agua */
+}
+
+.boton-obtener-php:hover {
+    background: linear-gradient(135deg, #12b886 0%, #20c997 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Elevación */
+}
+
+/* Botón para publicar en base de datos */
+.boton-publicar-bd {
+    background: linear-gradient(135deg, #ff6b6b 0%, #fa5252 100%); /* Gradiente rojo */
+}
+
+.boton-publicar-bd:hover {
+    background: linear-gradient(135deg, #fa5252 0%, #ff6b6b 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Elevación */
+}
+
+/* Botón para obtener de base de datos */
+.boton-obtener-bd {
+    background: linear-gradient(135deg, #cc5de8 0%, #be4bdb 100%); /* Gradiente morado */
+}
+
+.boton-obtener-bd:hover {
+    background: linear-gradient(135deg, #be4bdb 0%, #cc5de8 100%); /* Invierte gradiente */
+    transform: translateY(-2px); /* Elevación */
+}
+
+/* Mensajes de error de validación */
+.error {
+    color: #ff6b6b; /* Color rojo para errores */
+    font-size: 14px; /* Tamaño pequeño */
+    display: block; /* Ocupa toda la línea */
+    min-height: 20px; /* Altura mínima para mantener diseño */
+    margin-bottom: 10px; /* Espacio inferior */
+    font-weight: 500; /* Peso medio */
+}
+
+/* Efecto al presionar cualquier botón */
+button:active {
+    transform: translateY(0); /* Quita efecto de elevación */
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1); /* Sombra más sutil */
+}
+
+/* ========== DISEÑO RESPONSIVE ========== */
+
+/* Para pantallas de hasta 768px (tablets y móviles) */
+@media (max-width: 768px) {
+    .formulario {
+        padding: 20px; /* Reduce padding en móviles */
+    }
+    
+    /* Botones principales ocupan ancho completo en móviles */
+    .guardar, .recuperar {
+        width: 100%; /* Ancho completo */
+        margin: 10px 0; /* Margen solo vertical */
+    }
+    
+    /* Botones de servidor también ocupan ancho completo */
+    .boton-json,
+    .boton-publicar-php,
+    .boton-obtener-php,
+    .boton-publicar-bd,
+    .boton-obtener-bd {
+        width: 100%; /* Ancho completo */
+        margin: 5px 0; /* Margen solo vertical */
+    }
+}
+
+/* ========== ANIMACIONES ========== */
+
+/* Animación de aparición para el formulario */
+@keyframes fadeIn {
+    from { opacity: 0; } /* Comienza invisible */
+    to { opacity: 1; }   /* Termina visible */
+}
+
+/* Aplica animación al formulario */
+.formulario {
+    animation: fadeIn 0.5s ease-out; /* Duración 0.5s con easing out */
+}
+
+/* Estilo para placeholder (texto de ejemplo en inputs) */
+.escribir::placeholder {
+    color: #adb5bd; /* Color gris claro */
+    font-style: italic; /* Cursiva */
+}
+
+/* ========== ESTILOS PARA FIELDEST Y LEGEND ========== */
+
+/* Contenedores de grupos de campos */
+fieldset {
+    border: 2px solid #e9ecef; /* Borde gris claro */
+    margin-bottom: 25px; /* Espacio entre grupos */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+/* Títulos de grupos de campos */
+legend {
+    padding: 0 10px; /* Espaciado horizontal */
+    font-size: 18px; /* Tamaño de fuente mayor */
+    font-weight: 700; /* Negrita */
+    color: #495057; /* Color gris azulado */
+}
+
+/* ========== PANEL DE INFORMACIÓN DINÁMICO ========== */
+
+/* Panel para mensajes informativos */
+#info-panel {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); /* Gradiente azul claro */
+    border-left: 4px solid #1976d2; /* Borde izquierdo azul */
+    padding: 15px; /* Espaciado interno */
+    margin-top: 20px; /* Separación del contenido anterior */
+    border-radius: 8px; /* Esquinas redondeadas */
+    animation: slideIn 0.3s ease-out; /* Animación de entrada */
+}
+
+/* Animación para panel de información */
+@keyframes slideIn {
+    from {
+        opacity: 0; /* Comienza invisible */
+        transform: translateY(-10px); /* Ligeramente arriba */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+        transform: translateY(0); /* En posición normal */
+    }
+}

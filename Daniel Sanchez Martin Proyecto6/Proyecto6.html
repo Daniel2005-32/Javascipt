@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Codificación UTF-8 para caracteres especiales -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design -->
+    
+    <!-- Recursos externos -->
+    <link rel="stylesheet" href="Proyecto6.css"> <!-- Hoja de estilos CSS personalizada -->
+    <script src="Proyecto6.js" defer></script> <!-- Script JavaScript (defer para cargar después del HTML) -->
+    
+    <title>Formulario de Usuario</title> <!-- Título de la pestaña del navegador -->
+</head>
+
+<body>
+    <!-- Título principal centrado -->
+    <h1 style="text-align: center; color: #333; margin-bottom: 30px;">Formulario de Registro</h1>
+    
+    <!-- Formulario principal con ID para referencia en JavaScript -->
+    <form class="formulario" id="formulario">
+        
+        <!-- ========== SECCIÓN 1: DATOS PERSONALES ========== -->
+        <fieldset style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+            <legend style="font-weight: bold; color: #555;">Datos Personales</legend>
+            
+            <!-- Campo: Nombre -->
+            <label class="texto" for="nombre">Nombre:</label><br>
+            <input class="escribir" type="text" id="nombre" name="nombre" placeholder="Ej: Juan" required>
+            <span class="error"></span><br> <!-- Contenedor para mensajes de error -->
+
+            <!-- Campo: Apellidos -->
+            <label class="texto" for="apellido">Apellidos:</label><br>
+            <input class="escribir" type="text" id="apellido" name="apellido" placeholder="Ej: Pérez García" required>
+            <span class="error"></span><br>
+
+            <!-- Campo: DNI/NIE -->
+            <label class="texto" for="dni">DNI/NIE:</label><br>
+            <input class="escribir" type="text" id="dni" name="dni" placeholder="Ej: 12345678X" required>
+            <span class="error"></span><br>
+            
+            <!-- Campo: Fecha de Nacimiento -->
+            <label class="texto" for="fecha">Fecha de Nacimiento:</label><br>
+            <input class="escribir" type="text" id="fecha" name="fecha" placeholder="DD/MM/AAAA" required>
+            <span class="error"></span><br>
+            
+            <!-- Campo: Código Postal -->
+            <label class="texto" for="cp">Código Postal:</label><br>
+            <input class="escribir" type="text" id="cp" name="cp" placeholder="Ej: 28001" required>
+            <span class="error"></span><br>
+        </fieldset>
+
+        <!-- ========== SECCIÓN 2: DATOS DE CONTACTO ========== -->
+        <fieldset style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+            <legend style="font-weight: bold; color: #555;">Datos de Contacto</legend>
+            
+            <!-- Campo: Correo Electrónico -->
+            <label class="texto" for="correo">E-mail:</label><br>
+            <input class="escribir" type="email" id="correo" name="correo" placeholder="ejemplo@email.com" required>
+            <span class="error"></span><br>
+            
+            <!-- Campo: Teléfono Fijo (opcional) -->
+            <label class="texto" for="telefono">Teléfono Fijo:</label><br>
+            <input class="escribir" type="tel" id="telefono" name="telefono" placeholder="Ej: 915555555">
+            <span class="error"></span><br>
+            
+            <!-- Campo: Teléfono Móvil -->
+            <label class="texto" for="movil">Teléfono Móvil:</label><br>
+            <input class="escribir" type="tel" id="movil" name="movil" placeholder="Ej: 612345678" required>
+            <span class="error"></span><br>
+        </fieldset>
+
+        <!-- ========== SECCIÓN 3: DATOS BANCARIOS ========== -->
+        <fieldset style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+            <legend style="font-weight: bold; color: #555;">Datos Bancarios</legend>
+            
+            <!-- Campo: IBAN -->
+            <label class="texto" for="iban">IBAN:</label><br>
+            <input class="escribir" type="text" id="iban" name="iban" placeholder="ESXX XXXX XXXX XXXX XXXX XXXX" required>
+            <span class="error"></span><br>
+            
+            <!-- Campo: Tarjeta de Crédito -->
+            <label class="texto" for="tarjeta">Tarjeta de Crédito:</label><br>
+            <input class="escribir" type="text" id="tarjeta" name="tarjeta" placeholder="16 dígitos sin espacios" required>
+            <span class="error"></span><br>
+        </fieldset>
+
+        <!-- ========== SECCIÓN 4: SEGURIDAD ========== -->
+        <fieldset style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
+            <legend style="font-weight: bold; color: #555;">Seguridad</legend>
+            
+            <!-- Campo: Contraseña -->
+            <label class="texto" for="contrasenha">Contraseña:</label><br>
+            <input class="escribir" type="password" id="contrasenha" name="contrasenha" placeholder="Mínimo 12 caracteres" required>
+            <span class="error"></span><br>
+            
+            <!-- Campo: Repetir Contraseña -->
+            <label class="texto" for="repetir">Repetir Contraseña:</label><br>
+            <input class="escribir" type="password" id="repetir" name="repetir" placeholder="Repite la contraseña" required>
+            <span class="error"></span><br>
+        </fieldset>
+
+        <!-- ========== BOTONES PRINCIPALES ========== -->
+        <div style="text-align: center; margin: 20px 0;">
+            <!-- Botón para guardar en Session Storage -->
+            <button class="guardar" type="button">💾 GUARDAR</button>
+            <!-- Botón para recuperar de Session Storage -->
+            <button class="recuperar" type="button">🔍 RECUPERAR</button>
+        </div>
+
+        <!-- ========== SECCIÓN DE OPERACIONES CON SERVIDOR ========== -->
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+            <h3 style="margin-bottom: 15px; color: #555;">Operaciones con Servidor</h3>
+            
+            <!-- Primera fila de botones de servidor -->
+            <div style="margin-bottom: 10px;">
+                <!-- Botón para cargar datos desde archivo JSON local -->
+                <button class="boton-json" type="button">📄 Obtener desde .json</button>
+                <!-- Botón para enviar datos al servidor PHP -->
+                <button class="boton-publicar-php" type="button">📤 Publicar en .php</button>
+                <!-- Botón para obtener datos del servidor PHP -->
+                <button class="boton-obtener-php" type="button">📥 Obtener desde .php</button>
+            </div>
+            
+            <!-- Segunda fila de botones de base de datos -->
+            <div>
+                <!-- Botón para guardar en base de datos -->
+                <button class="boton-publicar-bd" type="button">💾 Publicar en Base de Datos</button>
+                <!-- Botón para obtener de base de datos -->
+                <button class="boton-obtener-bd" type="button">🔍 Obtener de Base de Datos</button>
+            </div>
+            
+            <!-- Notas informativas para el usuario -->
+            <div style="margin-top: 15px; font-size: 12px; color: #666;">
+                <p><strong>Nota:</strong> Para obtener datos, introduce un DNI en el campo correspondiente primero.</p>
+                <p>DNIs de ejemplo: 87654321B (PHP) o 12345678A (BD)</p>
+            </div>
+        </div>
+
+        <!-- ========== PANEL DE INFORMACIÓN DINÁMICO ========== -->
+        <div id="info-panel" style="margin-top: 20px; padding: 15px; background: #e8f4f8; border-radius: 8px; display: none;">
+            <h4 style="margin-top: 0; color: #31708f;">Información</h4>
+            <p id="info-text"></p> <!-- Texto dinámico que se llena con JavaScript -->
+        </div>
+    </form>
+
+    <!-- Script pequeño para manejar el panel de información -->
+    <script>
+        // Función para mostrar información temporal en el panel
+        function mostrarInfo(texto) {
+            const panel = document.getElementById('info-panel');
+            const infoText = document.getElementById('info-text');
+            infoText.textContent = texto; // Establecer texto
+            panel.style.display = 'block'; // Mostrar panel
+            
+            // Ocultar automáticamente después de 5 segundos
+            setTimeout(() => {
+                panel.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
